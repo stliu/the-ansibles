@@ -21,3 +21,4 @@
      - timezone
      - nginx
      - cassandra
+     - zookeeper
