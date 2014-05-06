@@ -1,8 +1,8 @@
 # file: roles/cassandra/tasks/dependencies.yml
 
 - name: Cassandra | Make sure the cassandra dependencies are installed
-  apt: pkg={{ item }}
+  yum: pkg={{ item }}
   with_items:
-    - libboost-all-dev
-    - libboost-dev
-    - pkg-config
+    - boost-devel
+    # - libboost-dev
+    # - pkg-config

@@ -1,6 +1,6 @@
 # file: roles/cassandra/defaults/main.yml
 
-cassandra_version: "2.0.0"
+cassandra_version: "2.0.7"
 cassandra_user: "cassandra"
 cassandra_group: "cassandra"
 cassandra_uid: 3050
