@@ -1,11 +1,12 @@
 # file: roles/nginx/tasks/dependencies.yml
 
 - name: Nginx | Make sure the nginx dependencies are installed
-  apt: pkg={{ item }}
+  yum: name={{ item }} state=present
   with_items:
     - git
-    - libgoogle-perftools-dev
-    - libpcre3
-    - libpcre3-dev
+    # - libgoogle-perftools-dev
+    - pcre
+    - pcre-devel
     - openssl
-    - zlib1g-dev
+    - zlib
+    - zlib-devel

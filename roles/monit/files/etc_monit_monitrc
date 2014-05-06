@@ -246,4 +246,4 @@ set mailserver localhost
 ## It is possible to include additional configuration parts from other files or
 ## directories.
 #
-   include /etc/monit/conf.d/*
+   include /etc/monit.d/*

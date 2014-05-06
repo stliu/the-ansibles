@@ -1,5 +1,10 @@
 # file: roles/auth/tasks/users.yml
 
+- name: Create the users group
+  group: name={{ item.name }} state=present
+  with_items: $users
+  
+
 - name: Auth | Make sure the users are present
-  user: name={{ item.name }} uid={{ item.uid }} password={{ item.passwd }} shell={{ item.shell }} comment="{{ item.comment }}" groups={{ ",".join(item.groups) }} append={{ item.append }}
+  user: name={{ item.name }} state=present uid={{ item.uid }} password={{ item.passwd }} shell={{ item.shell }} comment="{{ item.comment }}" groups={{ ",".join(item.groups) }} append={{ item.append }}
   with_items: $users

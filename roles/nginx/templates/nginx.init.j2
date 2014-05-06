@@ -1,5 +1,13 @@
 #!/bin/sh
-
+#
+# nginx        Startup script for nginx
+#
+# chkconfig: - 85 15
+# processname: nginx
+# config: /etc/nginx/nginx.conf
+# pidfile: {{nginx_pid}}
+# description: nginx is an HTTP and reverse proxy server
+#
 ### BEGIN INIT INFO
 # Provides:          nginx
 # Required-Start:    $local_fs $remote_fs $network $syslog
@@ -23,9 +31,9 @@ fi
 
 test -x $DAEMON || exit 0
 
-set -e
+# set -e
 
-. /lib/lsb/init-functions
+. /etc/rc.d/init.d/functions
 
 test_nginx_config() {
     if $DAEMON -t $DAEMON_OPTS >/dev/null 2>&1; then
@@ -45,25 +53,25 @@ case "$1" in
             # Set the ulimits
             ulimit $ULIMIT
         fi
-        start-stop-daemon --start --quiet --pidfile $PID \
+        daemon --start --quiet --pidfile $PID \
             --exec $DAEMON -- $DAEMON_OPTS || true
         echo "$NAME."
         ;;
 
     stop)
         echo -n "Stopping $DESC: "
-        start-stop-daemon --stop --quiet --pidfile $PID \
+        daemon --stop --quiet --pidfile $PID \
             --exec $DAEMON || true
         echo "$NAME."
         ;;
 
     restart|force-reload)
         echo -n "Restarting $DESC: "
-        start-stop-daemon --stop --quiet --pidfile \
+        daemon --stop --quiet --pidfile \
             $PID --exec $DAEMON || true
         sleep 1
         test_nginx_config
-        start-stop-daemon --start --quiet --pidfile \
+        daemon --start --quiet --pidfile \
             $PID --exec $DAEMON -- $DAEMON_OPTS || true
         echo "$NAME."
         ;;
@@ -71,7 +79,7 @@ case "$1" in
     reload)
         echo -n "Reloading $DESC configuration: "
         test_nginx_config
-        start-stop-daemon --stop --signal HUP --quiet --pidfile $PID \
+        daemon --stop --signal HUP --quiet --pidfile $PID \
             --exec $DAEMON || true
         echo "$NAME."
         ;;
@@ -86,7 +94,7 @@ case "$1" in
         ;;
 
     status)
-        status_of_proc -p $PID "$DAEMON" nginx && exit 0 || exit $?
+        status -p $PID "$DAEMON" nginx && exit 0 || exit $?
         ;;
     *)
         echo "Usage: $NAME {start|stop|restart|reload|force-reload|status|configtest}" >&2

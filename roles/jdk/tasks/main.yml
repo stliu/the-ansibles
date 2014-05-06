@@ -1,13 +1,14 @@
 # file: roles/jdk/tasks/main.yml
 
 - name: JDK | Oracle JDK | Make sure openjdk is uninstalled
-  apt: pkg=openjdk state=absent purge=true
+  yum: pkg=openjdk state=absent
 
 - name: JDK | Oracle JDK | Make a directory that holds the Java binaries
   file: path=/usr/local/java state=directory
 
 - name: JDK | Oracle JDK | Download Oracle JDK
-  command: wget --no-cookies --header 'Cookie:gpw_e24=http' '{{ jdk_download_url }}' chdir=/tmp creates=/tmp/{{ jdk_download_filename }}
+  command: wget --no-cookies --no-check-certificate --header "Cookie:gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" -O "{{ jdk_download_filename }}" "{{ jdk_download_url }}" chdir=/tmp creates=/tmp/{{ jdk_download_filename }}
+  
 
 - name: JDK | Oracle JDK | Unpack the compressed JDK binaries
   command: tar -xvzf /tmp/{{ jdk_download_filename }} chdir=/usr/local/java creates=/usr/local/java/{{ jdk_version }}

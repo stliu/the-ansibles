@@ -1,0 +1,22 @@
+- hosts: nginx
+  user: root
+  gather_facts: no
+  vars_files: 
+    - auth_vars
+  vars:
+    monit_protection: true
+  roles:
+     - epel
+     - base
+     - build
+     - cron
+     # - auth
+     - python
+     - jdk
+     - hostname
+     - ssh
+     - supervisor
+     - monit
+     # - ssl
+     - timezone
+     - nginx

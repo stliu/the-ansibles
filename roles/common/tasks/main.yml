@@ -1,28 +1,28 @@
 # file: roles/commons/tasks/main.yml
 
 - name: Common | Make sure some basic tools are installed
-  apt: pkg={{ item }}
+  yum: pkg={{ item }}
   with_items:
-    - command-not-found
+    # - command-not-found
     - curl
-    - debconf
-    - dmidecode
+    # - debconf
+    # - dmidecode
     - htop
     - iftop
     - iotop
     - nmap
-    - mosh
-    - pciutils
+    # - mosh
+    # - pciutils
     - sysstat
-    - tmux
-    - tshark
+    # - tmux
+    # - tshark
 
-- name: Common | Make sure git is installed
-  apt: pkg=git
-
-- name: Common | Make sure encfs and dependencies are installed
-  apt: pkg={{ item }}
-  with_items:
-    - encfs
-    - libfuse-dev
-    - fuse-utils
+# - name: Common | Make sure git is installed
+#   yum: pkg=git
+# 
+# - name: Common | Make sure encfs and dependencies are installed
+#   yum: pkg={{ item }}
+#   with_items:
+#     - encfs
+#     - libfuse-dev
+#     - fuse-utils

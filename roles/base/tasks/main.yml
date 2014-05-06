@@ -1,0 +1,17 @@
+- name: install my packages
+  yum: pkg={{ item }} state=installed
+  # dependencies:
+  #   - { role: epel }
+  # when: ansible_os_family == 'RedHat' and ansible_lsb.major_release|int == 6
+  with_items:
+    - libyaml
+    - libyaml-devel
+    - openssl
+    - openssl-devel
+    - zlib
+    - zlib-devel
+    - ImageMagick
+    - lsof
+    - htop
+    - sysstat
+    - iptraf-ng

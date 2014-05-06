@@ -5,8 +5,8 @@ nginx_install_method: "source" # package also possible
 nginx_version: 1.5.3
 nginx_user: www-data
 nginx_group: www-data
-nginx_uid: 33
-nginx_gid: 33
+nginx_uid: 36
+nginx_gid: 36
 
 nginx_dir: /etc/nginx
 nginx_www_dir: /srv/www
@@ -23,7 +23,7 @@ nginx_source_install_conf_path: /etc/nginx/nginx.conf
 nginx_source_modules_include:
 # <modulename-as-in-modules.yml>: <configure-flag>
   http_uwsgi_module: " "
-  google_perftools_module: "--with-google_perftools_module"
+  # google_perftools_module: "--with-google_perftools_module"
   http_ssl_module: "--with-http_ssl_module"
   http_gzip_static_module: "--with-http_gzip_static_module"
   ipv6: "--with-ipv6"
