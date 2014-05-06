@@ -5,101 +5,143 @@
 # chkconfig: - 85 15
 # processname: nginx
 # config: /etc/nginx/nginx.conf
-# pidfile: {{nginx_pid}}
+# pidfile: /var/run/nginx.pid
 # description: nginx is an HTTP and reverse proxy server
 #
 ### BEGIN INIT INFO
-# Provides:          nginx
-# Required-Start:    $local_fs $remote_fs $network $syslog
-# Required-Stop:     $local_fs $remote_fs $network $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: starts the nginx web server
-# Description:       starts nginx using start-stop-daemon
+# Provides: nginx
+# Required-Start: $local_fs $remote_fs $network
+# Required-Stop: $local_fs $remote_fs $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop nginx
 ### END INIT INFO
 
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON={{nginx_source_install_prefix}}/nginx/sbin/nginx
-NAME=nginx
-DESC=nginx
-PID={{nginx_pid}}
-
-# Include nginx defaults if available
-if [ -f /etc/default/nginx ]; then
-    . /etc/default/nginx
-fi
-
-test -x $DAEMON || exit 0
-
-# set -e
-
+# Source function library.
 . /etc/rc.d/init.d/functions
 
-test_nginx_config() {
-    if $DAEMON -t $DAEMON_OPTS >/dev/null 2>&1; then
-        return 0
-    else
-        $DAEMON -t $DAEMON_OPTS
-        return $?
+if [ -f /etc/sysconfig/nginx ]; then
+    . /etc/sysconfig/nginx
+fi
+
+prog=nginx
+nginx=${NGINX-{{nginx_source_install_prefix}}/nginx/sbin/nginx}
+conffile=${CONFFILE-/etc/nginx/nginx.conf}
+lockfile=${LOCKFILE-/var/lock/subsys/nginx}
+pidfile=${PIDFILE-{{nginx_pid}}}
+SLEEPMSEC=${SLEEPMSEC-100000}
+UPGRADEWAITLOOPS=${UPGRADEWAITLOOPS-5}
+RETVAL=0
+
+start() {
+    echo -n $"Starting $prog: "
+    configtest
+    if [ -n "$ULIMIT" ]; then
+        # Set the ulimits
+        ulimit $ULIMIT
     fi
+    daemon --pidfile=${pidfile} ${nginx} -c ${conffile}
+    RETVAL=$?
+    echo
+    [ $RETVAL = 0 ] && touch ${lockfile}
+    return $RETVAL
 }
 
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc -p ${pidfile} ${prog}
+    RETVAL=$?
+    echo
+    [ $RETVAL = 0 ] && rm -f ${lockfile} ${pidfile}
+}
+
+reload() {
+    echo -n $"Reloading $prog: "
+    killproc -p ${pidfile} ${prog} -HUP
+    RETVAL=$?
+    echo
+}
+
+upgrade() {
+    oldbinpidfile=${pidfile}.oldbin
+
+    configtest -q || return
+    echo -n $"Starting new master $prog: "
+    killproc -p ${pidfile} ${prog} -USR2
+    echo
+
+    for i in `/usr/bin/seq $UPGRADEWAITLOOPS`; do
+        /bin/usleep $SLEEPMSEC
+        if [ -f ${oldbinpidfile} -a -f ${pidfile} ]; then
+            echo -n $"Graceful shutdown of old $prog: "
+            killproc -p ${oldbinpidfile} ${prog} -QUIT
+            RETVAL=$?
+            echo
+            return
+        fi
+    done
+
+    echo $"Upgrade failed!"
+    RETVAL=1
+}
+
+configtest() {
+    if [ "$#" -ne 0 ] ; then
+        case "$1" in
+            -q)
+                FLAG=$1
+                ;;
+            *)
+                ;;
+        esac
+        shift
+    fi
+    ${nginx} -t -c ${conffile} $FLAG
+    RETVAL=$?
+    return $RETVAL
+}
+
+rh_status() {
+    status -p ${pidfile} ${nginx}
+}
+
+# See how we were called.
 case "$1" in
     start)
-        echo -n "Starting $DESC: "
-        test_nginx_config
-        # Check if the ULIMIT is set in /etc/default/nginx
-        if [ -n "$ULIMIT" ]; then
-            # Set the ulimits
-            ulimit $ULIMIT
-        fi
-        daemon --start --quiet --pidfile $PID \
-            --exec $DAEMON -- $DAEMON_OPTS || true
-        echo "$NAME."
+        rh_status >/dev/null 2>&1 && exit 0
+        start
         ;;
-
     stop)
-        echo -n "Stopping $DESC: "
-        daemon --stop --quiet --pidfile $PID \
-            --exec $DAEMON || true
-        echo "$NAME."
+        stop
         ;;
-
-    restart|force-reload)
-        echo -n "Restarting $DESC: "
-        daemon --stop --quiet --pidfile \
-            $PID --exec $DAEMON || true
-        sleep 1
-        test_nginx_config
-        daemon --start --quiet --pidfile \
-            $PID --exec $DAEMON -- $DAEMON_OPTS || true
-        echo "$NAME."
+    status)
+        rh_status
+        RETVAL=$?
         ;;
-
-    reload)
-        echo -n "Reloading $DESC configuration: "
-        test_nginx_config
-        daemon --stop --signal HUP --quiet --pidfile $PID \
-            --exec $DAEMON || true
-        echo "$NAME."
+    restart)
+        configtest -q || exit $RETVAL
+        stop
+        start
         ;;
-
-    configtest|testconfig)
-        echo -n "Testing $DESC configuration: "
-        if test_nginx_config; then
-            echo "$NAME."
-        else
-            exit $?
+    upgrade)
+        rh_status >/dev/null 2>&1 || exit 0
+        upgrade
+        ;;
+    condrestart|try-restart)
+        if rh_status >/dev/null 2>&1; then
+            stop
+            start
         fi
         ;;
-
-    status)
-        status -p $PID "$DAEMON" nginx && exit 0 || exit $?
+    force-reload|reload)
+        reload
+        ;;
+    configtest)
+        configtest
         ;;
     *)
-        echo "Usage: $NAME {start|stop|restart|reload|force-reload|status|configtest}" >&2
-        exit 1
-        ;;
+        echo $"Usage: $prog {start|stop|restart|condrestart|try-restart|force-reload|upgrade|reload|status|help|configtest}"
+        RETVAL=2
 esac
 
-exit 0
+exit $RETVAL
