@@ -6,5 +6,5 @@ dependencies:
   - { role: python }
   - { role: jdk }
   - { role: scala }
-  - { role: maven }
+  # - { role: maven }
   - { role: supervisor }
