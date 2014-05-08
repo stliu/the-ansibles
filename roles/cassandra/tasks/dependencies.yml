@@ -4,5 +4,6 @@
   yum: pkg={{ item }}
   with_items:
     - boost-devel
+    - jna
     # - libboost-dev
     # - pkg-config
