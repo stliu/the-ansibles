@@ -1,3 +1,13 @@
+#这个会被直接执行
+commands_to_optimize:
+  - "echo 9999999 | sudo tee /proc/sys/fs/nr_open"
+
+#这些会被添加到 /etc/security/limits.conf
+limits_conf_values:
+  - "*   hard    nofile      9999999"
+  - "*   soft    nofile      9999999"  
+
+#这个会被添加到 /etc/sysctl.conf 并执行 sysctl -p  
 sysctl_values:
   - name: fs.file-max
     value: 9999999

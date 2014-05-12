@@ -1,0 +1,20 @@
+# file: roles/tomcat/tasks/user.yml
+
+- name: Tomcat | Make sure the tomcat group is present
+  group: gid={{ tomcat_gid }} name={{ tomcat_group }} state=present
+
+# - name: Tomcat | Make sure the tomcat user directory is present
+#   action: file path="/app/home/{{ tomcat_user }}" state=directory
+
+# - name: Tomcat | Make sure the tomcat user is present
+#   user: uid={{ tomcat_uid }} name={{ tomcat_user }} group={{ tomcat_group }} home="/app/home/{{ tomcat_user }}" shell=/bin/bash state=present comment="Tomcat user"
+
+- name: Tomcat | Make sure the tomcat user is present
+  user: uid={{ tomcat_uid }} name={{ tomcat_user }} group={{ tomcat_group }}  shell=/sbin/nologin state=present comment="Tomcat user"
+
+
+# - name: Tomcat | Set the right tomcat user directory permissions
+#   action: file path="/app/home/{{ tomcat_user }}" owner={{ tomcat_user }} group={{ tomcat_group }} mode=0700 state=directory
+# 
+# - name: Tomcat | Set the right expiration on the tomcat user
+#   command: "sudo chage -I -1 -E -1 -m -1 -M -1 -W -1 -E -1 {{ tomcat_user }}"

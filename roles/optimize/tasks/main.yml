@@ -1,3 +1,11 @@
 - name: Optimize | Update the sysctl configuration
   sysctl: name={{item.name}} value={{item.value}} ignoreerrors=no reload=yes state=present
   with_items: sysctl_values
+
+- name: Optimize | Update the limits configuration
+  lineinfile: dest=/etc/security/limits.conf state=present line={{ item }}
+  with_items: limits_conf_values
+  
+- name: Optimize | Execute commands
+  command: "{{ item }}"
+  with_items: commands_to_optimize  

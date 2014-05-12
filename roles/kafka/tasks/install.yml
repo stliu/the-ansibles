@@ -1,7 +1,7 @@
 # file: roles/kafka/tasks/install.yml
 
 - name: Kafka | Download the kafka source in /tmp if not yet present
-  get_url: url=wget {{ kafka_download_url }} dest=/tmp/kafka_{{ scala_version }}-{{ kafka_version }}.tgz
+  get_url: url={{ kafka_download_url }} dest=/tmp/kafka_{{ scala_version }}-{{ kafka_version }}.tgz
 
 - name: Kafka | Untar the kafka source in /usr/local/etc
   command: tar -xvzf /tmp/kafka_{{ scala_version }}-{{ kafka_version }}.tgz chdir=/opt creates=/opt/kafka_{{ scala_version }}-{{ kafka_version }}

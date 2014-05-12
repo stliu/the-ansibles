@@ -21,7 +21,7 @@
      - epel
      - directories
      - ssl
-     - ssh
+     # - ssh
      - hostname
      - timezone
      - base
@@ -35,4 +35,5 @@
      - cassandra
      - zookeeper
      - kafka
+     - tomcat
      - optimize

@@ -1,7 +1,7 @@
 # file: roles/zookeeper/tasks/user.yml
 
 - name: Zookeeper | Make sure the zookeeper group is present
-  action: group gid={{ zookeeper_gid }} name={{ zookeeper_group }} state=present
+  group: gid={{ zookeeper_gid }} name={{ zookeeper_group }} state=present
 
 # - name: Zookeeper | Make sure the zookeeper user directory is present
 #   action: file path="/app/home/{{ zookeeper_user }}" state=directory

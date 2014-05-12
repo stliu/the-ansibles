@@ -1,7 +1,7 @@
 # file: roles/kafka/tasks/user.yml
 
 - name: Kafka | Make sure the kafka group is present
-  action: group gid={{ kafka_gid }} name={{ kafka_group }} state=present
+  group:  gid={{ kafka_gid }} name={{ kafka_group }} state=present
 
 # - name: Kafka | Make sure the kafka user directory is present
 #   action: file path='/app/home/{{ kafka_user }}' state=directory

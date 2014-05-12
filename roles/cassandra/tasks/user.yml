@@ -1,7 +1,7 @@
 # file: roles/cassandra/tasks/user.yml
 
 - name: Cassandra | Make sure the cassandra group is present
-  action: group gid={{ cassandra_gid }} name={{ cassandra_group }} state=present
+  group: gid={{ cassandra_gid }} name={{ cassandra_group }} state=present
 
 # - name: Cassandra | Make sure the cassandra user directory is present
 #   action: file path="/app/home/{{ cassandra_user }}" state=directory

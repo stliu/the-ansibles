@@ -1,0 +1,11 @@
+# file: roles/tomcat/tasks/configure.yml
+
+- name: Tomcat | Update the tomcat configuration
+  template: src=usr_local_etc_tomcat_conf_zoo.cfg.j2 dest=/usr/local/etc/tomcat/conf/zoo.cfg owner={{ tomcat_user }} group={{ tomcat_group }} mode=0644
+  notify:
+    - restart tomcat
+
+- name: Tomcat | Update the tomcat myid identifier
+  template: src=myid.j2 dest={{ tomcat_data_dir }}/myid owner={{ tomcat_user }} group={{ tomcat_group }} mode=0644
+  notify:
+    - restart tomcat
