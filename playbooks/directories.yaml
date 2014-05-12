@@ -1,5 +1,5 @@
 # file: roles/directories/tasks/main.yml
-
+## 定义默认创建的目录结构以及这些目录的权限
 directories_default:
   - path: /srv/www
     owner: www-data

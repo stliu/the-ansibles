@@ -6,21 +6,22 @@
     - users.yaml
     - cassandra.yaml
     - directories.yaml
+    - jdk.yaml
   vars:
     monit_protection: true
   roles:
      - epel
      - directories
+     - hostname
+     - timezone
      - base
      - build
      - cron
      - python
      - jdk
      - scala
-     - hostname
      - supervisor
      - monit
-     - timezone
      - nginx
      - cassandra
      - zookeeper
