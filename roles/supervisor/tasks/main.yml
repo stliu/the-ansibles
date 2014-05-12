@@ -1,7 +1,7 @@
 # file: roles/supervisor/tasks/main.yml
 
 - name: Supervisor | Make sure supervisor is installed
-  pip: name=supervisor version={{ supervisor_version }}
+  pip: name=supervisor version={{ supervisor_version }} state=present
 
 - name: Supervisor | Make sure the supervisor conf dir exists
   file: path={{ supervisor_dir }} state=directory mode=0755 owner=root group=root

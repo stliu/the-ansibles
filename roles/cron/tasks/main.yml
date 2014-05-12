@@ -4,4 +4,4 @@
   yum: pkg=crontabs state=present
 
 - name: Cron | Make sure cron is enabled
-  action: service name=crond state=restarted enabled=yes
+  service: name=crond state=restarted enabled=yes

@@ -1,7 +1,7 @@
 # file: roles/zookeeper/tasks/install.yml
 
 - name: Zookeeper | Download the zookeeper source in /tmp if not yet present
-  command: wget {{zookeeper_download_url}} chdir=/tmp creates=/tmp/zookeeper-{{ zookeeper_version }}.tar.gz
+  get_url: url={{zookeeper_download_url}} dest=/tmp/zookeeper-{{ zookeeper_version }}.tar.gz
 
 - name: Zookeeper | Untar the zookeeper source in /usr/local/etc
   command: tar -xvzf /tmp/zookeeper-{{ zookeeper_version }}.tar.gz chdir=/usr/local/etc creates=/usr/local/etc/zookeeper-{{ zookeeper_version }}
@@ -16,8 +16,8 @@
   file: path={{ zookeeper_data_dir }} owner={{ zookeeper_user }} group={{ zookeeper_group }} mode=0750 state=directory
   
 - name: Zookeeper | Inform the system where the zkCli.sh binary is located
-  command: update-alternatives --install "/usr/bin/zkCli.sh" "zkCli.sh" "/usr/local/etc/zookeeper/bin/zkCli.sh" 1
+  alternatives: name="zkCli" path="/usr/local/etc/zookeeper/bin/zkCli.sh"
 
-- name: Zookeeper | Inform the system that this zkCli.sh binary must be the default
-  command: update-alternatives --set zkCli.sh /usr/local/etc/zookeeper/bin/zkCli.sh
+# - name: Zookeeper | Inform the system that this zkCli.sh binary must be the default
+#   alternatives: update-alternatives --set zkCli.sh /usr/local/etc/zookeeper/bin/zkCli.sh
 

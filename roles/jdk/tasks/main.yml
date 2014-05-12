@@ -23,19 +23,33 @@
     - dest=/etc/profile regexp='^PATH=.*JAVA_HOME.*' line="PATH=$PATH:$HOME/bin:$JAVA_HOME/bin" state=present
 
 - name: JDK | Oracle JDK | Inform the system where Oracle JDK is located
-  command: "{{ item }}"
+  alternatives: name={{item.name}} path={{item.path}}
   with_items:
-    - update-alternatives --install "/usr/bin/java" "java" "/usr/local/java/jdk/bin/java" 1
-    - update-alternatives --install "/usr/bin/javac" "javac" "/usr/local/java/jdk/bin/javac" 1
-    - update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/local/java/jdk/bin/javaws" 1
-    - update-alternatives --install "/usr/bin/javah" "javah" "/usr/local/java/jdk/bin/javah" 1
-    - update-alternatives --install "/usr/bin/jar" "jar" "/usr/local/java/jdk/bin/jar" 1
+    - name: java
+      path: /usr/local/java/jdk/bin/java
+    - name: javac
+      path: /usr/local/java/jdk/bin/javac
+    - name: javaws
+      path: /usr/local/java/jdk/bin/javaws
+    - name: javah
+      path: /usr/local/java/jdk/bin/javah
+    - name: jar
+      path: /usr/local/java/jdk/bin/jar
 
-- name: JDK | Oracle JDK | Inform the system that Oracle JDK must be the default
-  command: "{{ item }}"
-  with_items:
-    - update-alternatives --set java /usr/local/java/jdk/bin/java
-    - update-alternatives --set javac /usr/local/java/jdk/bin/javac
-    - update-alternatives --set javaws /usr/local/java/jdk/bin/javaws
-    - update-alternatives --set javah /usr/local/java/jdk/bin/javah
-    - update-alternatives --set jar /usr/local/java/jdk/bin/jar
+# - name: JDK | Oracle JDK | Inform the system where Oracle JDK is located
+#   command: "{{ item }}"
+#   with_items:
+#     - update-alternatives --install "/usr/bin/java" "java" "/usr/local/java/jdk/bin/java" 1
+#     - update-alternatives --install "/usr/bin/javac" "javac" "/usr/local/java/jdk/bin/javac" 1
+#     - update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/local/java/jdk/bin/javaws" 1
+#     - update-alternatives --install "/usr/bin/javah" "javah" "/usr/local/java/jdk/bin/javah" 1
+#     - update-alternatives --install "/usr/bin/jar" "jar" "/usr/local/java/jdk/bin/jar" 1
+# 
+# - name: JDK | Oracle JDK | Inform the system that Oracle JDK must be the default
+#   command: "{{ item }}"
+#   with_items:
+#     - update-alternatives --set java /usr/local/java/jdk/bin/java
+#     - update-alternatives --set javac /usr/local/java/jdk/bin/javac
+#     - update-alternatives --set javaws /usr/local/java/jdk/bin/javaws
+#     - update-alternatives --set javah /usr/local/java/jdk/bin/javah
+#     - update-alternatives --set jar /usr/local/java/jdk/bin/jar

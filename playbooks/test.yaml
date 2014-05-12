@@ -10,8 +10,10 @@
   vars:
     monit_protection: true
   roles:
+     - auth
      - epel
      - directories
+     - ssl
      - hostname
      - timezone
      - base
@@ -19,7 +21,6 @@
      - cron
      - python
      - jdk
-     - scala
      - supervisor
      - monit
      - nginx

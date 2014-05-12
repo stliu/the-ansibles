@@ -10,8 +10,7 @@ users:
     shell: /bin/bash
     groups:
     - adm
-    - sudo
-    - staff
+    - root
     append: yes
   - name: easemob
     passwd: '15608221f1170dafdcd3c9fa7ae9897504ba51964200a90e9d40e72720c3c42dfad4eca126e3fcbd79c8f932755b1aa01c061c45addea823c5e525ce04e12b69'
@@ -20,8 +19,7 @@ users:
     shell: /bin/bash
     groups:
     - adm
-    - sudo
-    - staff
+    - root
     append: yes
 
 keys:

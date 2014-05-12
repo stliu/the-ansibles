@@ -1,5 +1,5 @@
 - name: Downloading the EPEL repository definitions.
-  get_url: dest=/tmp url={{epel_download_url}} mode=0644
+  get_url: dest=/tmp/epel-release-6-8.noarch.rpm url={{epel_download_url}} mode=0644
 
 - name: Enable the EPEL repository
   action: command rpm -Uvh --replacepkgs /tmp/epel-release-6-8.noarch.rpm

@@ -5,5 +5,5 @@
   with_items: python_packages
 
 - name: Python | Make sure python modules are installed
-  pip: name={{ item }}
+  pip: name={{ item }} state=present
   with_items: python_modules
