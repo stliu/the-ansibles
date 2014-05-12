@@ -1,5 +1,0 @@
-# file: roles/mail/handlers/dovecot.yml
-
-- name: restart dovecot
-  service: name=dovecot state=restarted
-  sudo: yes
