@@ -11,3 +11,7 @@ directories_additional:
     owner: easemob
     group: easemob
     mode: '0755'
+  - path: /var/easemob
+    owner: easemob
+    group: easemob
+    mode: '0755'    

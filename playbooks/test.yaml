@@ -11,6 +11,8 @@
     - python.yaml
     - optimize.yaml
     - kafka.yaml
+    - zookeeper.yaml
+    - nginx.yaml
   vars:
     monit_protection: true
   roles:
