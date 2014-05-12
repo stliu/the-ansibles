@@ -1,6 +1,6 @@
 # file: roles/supervisor/defaults.main.yml
 
-supervisor_version: 3.0b2
+supervisor_version: 3.0
 supervisor_inet_port: 8010
 supervisor_inet_username: supervisor
 supervisor_inet_password: supervisor
