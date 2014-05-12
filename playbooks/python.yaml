@@ -1,0 +1,14 @@
+# 需要通过yum安装的python包
+python_packages:
+  - Cython
+  - libevent
+  - libevent-devel
+  - python
+  - python-devel
+  - python-setuptools
+  - python-pip
+  
+# 需要通过pip安装的python包  
+python_modules:
+  - requests
+  - virtualenv  
