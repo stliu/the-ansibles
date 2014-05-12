@@ -1,0 +1,95 @@
+sysctl_values:
+  - name: fs.file-max
+    value: 9999999
+  - name: fs.file-max 
+    value:  9999999
+  - name: net.ipv4.ip_conntrack_max 
+    value:  9999999
+  - name: net.ipv4.netfilter.ip_conntrack_max 
+    value:  9999999
+  #调整tcp的连接时间
+  - name: net.ipv4.tcp_keepalive_time
+    value: 60
+  - name: net.ipv4.tcp_keepalive_probes
+    value: 30
+  - name: net.ipv4.tcp_keepalive_intvl
+    value: 90
+  #disable IPv6
+  - name: net.ipv6.conf.default.disable_ipv6
+    value: 1
+  - name: net.ipv6.conf.all.disable_ipv6
+    value: 1
+  # General gigabit tuning
+  - name: net.core.rmem_max 
+    value:  16777216
+  - name: net.core.wmem_max 
+    value:  16777216
+  # 这里设置的是tcp缓冲区, 分别为最小, 默认, 最大
+  - name: net.ipv4.tcp_rmem 
+    value:  4096 87380 16777216
+  - name: net.ipv4.tcp_wmem 
+    value:  4096 65536 16777216
+  # This gives the kernel more memory for TCP
+  # which you need with many (100k+) open socket connections
+  - name: net.ipv4.tcp_mem 
+    value:  50576 64768 98152
+  # Backlog
+  - name: net.core.netdev_max_backlog 
+    value:  2048
+  - name: net.core.somaxconn 
+    value:  1024
+  - name: net.ipv4.tcp_max_syn_backlog 
+    value:  2048
+  - name: net.ipv4.tcp_syncookies 
+    value:  1
+  - name: net.ipv4.tcp_tw_reuse 
+    value:  1
+  - name: net.ipv4.tcp_tw_recycle 
+    value:  1
+  - name: net.ipv4.tcp_fin_timeout 
+    value:  30
+  - name: net.ipv4.ip_local_port_range 
+    value:  1024 65000    
+
+# 在 `/etc/sysctl.conf` 文件中添加
+# 
+#     fs.file-max = 9999999
+#     net.ipv4.ip_conntrack_max = 9999999
+#     net.ipv4.netfilter.ip_conntrack_max = 9999999
+#     #调整tcp的连接时间
+#     net.ipv4.tcp_keepalive_time=60
+#     net.ipv4.tcp_keepalive_probes=30
+#     net.ipv4.tcp_keepalive_intvl=90
+#     #disable IPv6
+#     net.ipv6.conf.default.disable_ipv6=1
+#     net.ipv6.conf.all.disable_ipv6=1
+#     # General gigabit tuning
+#     net.core.rmem_max = 16777216
+#     net.core.wmem_max = 16777216
+#     # 这里设置的是tcp缓冲区, 分别为最小, 默认, 最大
+#     net.ipv4.tcp_rmem = 4096 87380 16777216
+#     net.ipv4.tcp_wmem = 4096 65536 16777216
+#     # This gives the kernel more memory for TCP
+#     # which you need with many (100k+) open socket connections
+#     net.ipv4.tcp_mem = 50576 64768 98152
+#     # Backlog
+#     net.core.netdev_max_backlog = 2048
+#     net.core.somaxconn = 1024
+#     net.ipv4.tcp_max_syn_backlog = 2048
+#     net.ipv4.tcp_syncookies = 1
+#     net.ipv4.tcp_tw_reuse = 1
+#     net.ipv4.tcp_tw_recycle = 1
+#     net.ipv4.tcp_fin_timeout = 30
+#     net.ipv4.ip_local_port_range = 1024 65000
+#  
+#     
+# 
+# 编辑 /etc/security/limits.conf 文件, 加入如下行:
+#     
+#     # /etc/security/limits.conf
+#     *   hard    nofile      9999999
+#     *   soft    nofile      9999999
+# 
+# 调整系统参数
+#     
+#     echo 9999999 | sudo tee /proc/sys/fs/nr_open

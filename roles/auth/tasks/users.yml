@@ -1,5 +1,9 @@
 # file: roles/auth/tasks/users.yml
 
+- name: Create default group
+  group: name={{item.name}} gid={{item.gid}} state=present
+  with_items: default_groups
+
 - name: Create the users group
   group: name={{ item.name }} state=present
   with_items: users

@@ -1,16 +1,16 @@
 # file: roles/kafka/tasks/install.yml
 
 - name: Kafka | Download the kafka source in /tmp if not yet present
-  command: wget http://mirror.bit.edu.cn/apache/kafka/{{ kafka_version }}/kafka_{{ scala_version }}-{{ kafka_version }}.tgz chdir=/tmp creates=/tmp/kafka_{{ scala_version }}-{{ kafka_version }}.tgz
+  get_url: url=wget {{ kafka_download_url }} dest=/tmp/kafka_{{ scala_version }}-{{ kafka_version }}.tgz
 
 - name: Kafka | Untar the kafka source in /usr/local/etc
-  command: tar -xvzf /tmp/kafka_{{ scala_version }}-{{ kafka_version }}.tgz chdir=/usr/local/etc creates=/usr/local/etc/kafka_{{ scala_version }}-{{ kafka_version }}
+  command: tar -xvzf /tmp/kafka_{{ scala_version }}-{{ kafka_version }}.tgz chdir=/opt creates=/opt/kafka_{{ scala_version }}-{{ kafka_version }}
 
 - name: Kafka | Update the kafka install permissions
-  file: path=/usr/local/etc/kafka_{{ scala_version }}-{{ kafka_version }} owner={{ kafka_user }} group={{ kafka_group }} state=directory recurse=yes
+  file: path=/opt/kafka_{{ scala_version }}-{{ kafka_version }} owner={{ kafka_user }} group={{ kafka_group }} state=directory recurse=yes
 
 - name: Kafka | Update the symbolic link to the kafka install
-  file: path=/usr/local/etc/kafka src=/usr/local/etc/kafka_{{ scala_version }}-{{ kafka_version }} state=link force=yes
+  file: path=/opt/kafka src=/opt/kafka_{{ scala_version }}-{{ kafka_version }} state=link force=yes
 
 - name: Kafka | Make sure the local working directory for kafka is present
   file: path={{ kafka_local_dir }} owner={{ kafka_user }} group={{ kafka_group }} mode=0750 state=directory

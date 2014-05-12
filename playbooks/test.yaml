@@ -7,6 +7,10 @@
     - cassandra.yaml
     - directories.yaml
     - jdk.yaml
+    - supervisor.yaml
+    - python.yaml
+    - optimize.yaml
+    - kafka.yaml
   vars:
     monit_protection: true
   roles:
@@ -27,3 +31,4 @@
      - cassandra
      - zookeeper
      - kafka
+     - optimize

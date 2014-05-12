@@ -6,8 +6,8 @@ kafka_user: kafka
 kafka_group: kafka
 kafka_uid: 3070
 kafka_gid: 3070
-kafka_local_dir: /app/kafka
-
+kafka_local_dir: /var/easemob/kafka
+kafka_download_url: http://mirror.bit.edu.cn/apache/kafka/{{ kafka_version }}/kafka_{{ scala_version }}-{{ kafka_version }}.tgz
 # server.properties required settings
 kafka_server_JMX_PORT: 13005
 kafka_server_broker_id: 1

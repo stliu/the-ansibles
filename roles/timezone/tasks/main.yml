@@ -12,6 +12,9 @@
     - tzdata
     - ntp
     - ntpdate
+    
+- name: Timezone | Update the hardware clock
+  command: hwclock -w
 
 - name: Timezone | Make sure ntpd is running and enabled
   service: name=ntpd state=restarted enabled=yes

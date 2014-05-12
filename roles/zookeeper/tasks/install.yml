@@ -4,20 +4,23 @@
   get_url: url={{zookeeper_download_url}} dest=/tmp/zookeeper-{{ zookeeper_version }}.tar.gz
 
 - name: Zookeeper | Untar the zookeeper source in /usr/local/etc
-  command: tar -xvzf /tmp/zookeeper-{{ zookeeper_version }}.tar.gz chdir=/usr/local/etc creates=/usr/local/etc/zookeeper-{{ zookeeper_version }}
+  command: tar -xvzf /tmp/zookeeper-{{ zookeeper_version }}.tar.gz chdir=/opt creates=/opt/zookeeper-{{ zookeeper_version }}
 
 - name: Zookeeper | Update the zookeeper install permissions
-  file: path=/usr/local/etc/zookeeper-{{ zookeeper_version }} owner={{ zookeeper_user }} group={{ zookeeper_group }} state=directory recurse=yes
+  file: path=/opt/zookeeper-{{ zookeeper_version }} owner={{ zookeeper_user }} group={{ zookeeper_group }} state=directory recurse=yes
 
 - name: Zookeeper | Update the symbolic link to the zookeeper install
-  file: path=/usr/local/etc/zookeeper src=/usr/local/etc/zookeeper-{{ zookeeper_version }} state=link force=yes
+  file: path=/opt/zookeeper src=/opt/zookeeper-{{ zookeeper_version }} state=link force=yes
 
 - name: Zookeeper | Make sure the local working directory for zookeeper is present
   file: path={{ zookeeper_data_dir }} owner={{ zookeeper_user }} group={{ zookeeper_group }} mode=0750 state=directory
   
+# - name: Zookeeper | Inform the system where the zkCli.sh binary is located
+#   alternatives: name="zkCli" path="/opt/zookeeper/bin/zkCli.sh"
+#   
 - name: Zookeeper | Inform the system where the zkCli.sh binary is located
-  alternatives: name="zkCli" path="/usr/local/etc/zookeeper/bin/zkCli.sh"
+  command: update-alternatives --install "/usr/bin/zkCli" "zkCli" "/opt/zookeeper/bin/zkCli.sh" 1
 
-# - name: Zookeeper | Inform the system that this zkCli.sh binary must be the default
-#   alternatives: update-alternatives --set zkCli.sh /usr/local/etc/zookeeper/bin/zkCli.sh
+- name: Zookeeper | Inform the system that this zkCli.sh binary must be the default
+  command: update-alternatives --set zkCli.sh /opt/zookeeper/bin/zkCli.sh
 
