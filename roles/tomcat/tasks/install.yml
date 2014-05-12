@@ -12,8 +12,8 @@
 - name: Tomcat | Update the symbolic link to the tomcat install
   file: path=/opt/tomcat src=/opt/tomcat-{{ tomcat_version }} state=link force=yes
 
-- name: Tomcat | Make sure the local working directory for tomcat is present
-  file: path={{ tomcat_data_dir }} owner={{ tomcat_user }} group={{ tomcat_group }} mode=0750 state=directory
+# - name: Tomcat | Make sure the local working directory for tomcat is present
+#   file: path={{ tomcat_data_dir }} owner={{ tomcat_user }} group={{ tomcat_group }} mode=0750 state=directory
   
 - name: Tomcat | Cleanup webapps 
   file: path=/opt/tomcat/webapps/* state=absent 
