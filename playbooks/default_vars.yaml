@@ -23,6 +23,7 @@ epel_download_url: http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-
 tomcat_download_url: http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.53/bin/apache-tomcat-7.0.53.tar.gz  
 
 #################################### Build  ###########################################
+#是否安装build相关的包, 默认为true
 include_build_packages: true
 build_packages:
   - autoconf

@@ -1,3 +1,4 @@
+# 删除一些默认的group, 暂时disable掉
 # - name: remove unnessenary packages
 #   yum: pkg="@{{ item }}" state=removed
 #   with_items:
@@ -30,8 +31,8 @@
 #     - Web Server
 #     - X Window System
 # 
-# - name: upgrade all packages
-#   yum: name=* state=latest
+- name: upgrade all packages
+  yum: name=* state=latest
   
 - name: install common packages
   yum: pkg={{ item }} state=installed

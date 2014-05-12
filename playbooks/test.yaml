@@ -4,10 +4,13 @@
   vars_files: 
     - default_vars.yaml
     - users.yaml
+    - cassandra.yaml
+    - directories.yaml
   vars:
     monit_protection: true
   roles:
      - epel
+     - directories
      - base
      - build
      - cron
