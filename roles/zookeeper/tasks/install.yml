@@ -14,3 +14,10 @@
 
 - name: Zookeeper | Make sure the local working directory for zookeeper is present
   file: path={{ zookeeper_data_dir }} owner={{ zookeeper_user }} group={{ zookeeper_group }} mode=0750 state=directory
+  
+- name: Zookeeper | Inform the system where the zkCli.sh binary is located
+  command: update-alternatives --install "/usr/bin/zkCli.sh" "zkCli.sh" "/usr/local/etc/zookeeper/bin/zkCli.sh" 1
+
+- name: Zookeeper | Inform the system that this zkCli.sh binary must be the default
+  command: update-alternatives --set zkCli.sh /usr/local/etc/zookeeper/bin/zkCli.sh
+

@@ -2,7 +2,8 @@
   user: root
   gather_facts: no
   vars_files: 
-    - auth_vars
+    - default_vars.yaml
+    - users.yaml
   vars:
     monit_protection: true
   roles:
@@ -10,15 +11,12 @@
      - base
      - build
      - cron
-     # - auth
      - python
      - jdk
      - scala
      - hostname
-     - ssh
      - supervisor
      - monit
-     # - ssl
      - timezone
      - nginx
      - cassandra

@@ -1,32 +1,6 @@
 # file: roles/build/tasks/main.yml
 
 - name: Build | Make sure essential build/dev tools and compilers are installed/up-to-date
+  when: include_build_packages == true
   yum: name={{ item }} state=present
-  with_items:
-    - autoconf
-    - automake
-    - binutils
-    - bison
-    - flex
-    - gcc
-    - gcc-c++
-    - gettext
-    - libtool
-    - make
-    - patch
-    - pkgconfig
-    - redhat-rpm-config
-    - rpm-build
-    # - ack
-    # - acl
-    # - apticron
-    # - automake
-    # - autoconf
-    # - binutils-doc
-    # - build-essential
-    # - g++
-    # - libtool
-    # - libssl-dev
-    # - libwww-perl
-    # - update-notifier-common
-    # - uuid-dev
+  with_items: build_packages

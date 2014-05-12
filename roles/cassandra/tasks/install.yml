@@ -18,6 +18,13 @@
 - name: Cassandra | Inform the system that this cassandra-cli binary must be the default
   command: update-alternatives --set cassandra-cli /usr/local/etc/cassandra/bin/cassandra-cli
 
+- name: Cassandra | Inform the system where the nodetool binary is located
+  command: update-alternatives --install "/usr/bin/nodetool" "nodetool" "/usr/local/etc/cassandra/bin/nodetool" 1
+
+- name: Cassandra | Inform the system that this nodetool binary must be the default
+  command: update-alternatives --set nodetool /usr/local/etc/cassandra/bin/nodetool
+
+
 - name: Cassandra | Make sure the local working (data) directory for cassandra is present
   file: path={{ cassandra_data_root_dir }} owner={{ cassandra_user }} group={{ cassandra_group }} mode=0750 state=directory
 
