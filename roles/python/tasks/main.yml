@@ -1,15 +1,9 @@
 # file: roles/python/tasks/main.yml
 
 - name: Python | Make sure python packages are installed
-  yum: pkg={{ item }}
-  with_items:
-    - Cython
-    - libevent
-    - libevent-devel
-    - python
-    - python-devel
-    - python-setuptools
-    - python-pip
+  yum: pkg={{ item }} state=present
+  with_items: python_packages
 
-- name: Python | Make sure virtualenv is installed
-  pip: name=virtualenv
+- name: Python | Make sure python modules are installed
+  pip: name={{ item }}
+  with_items: python_modules

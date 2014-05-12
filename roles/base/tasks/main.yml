@@ -35,7 +35,7 @@
   yum: name=* state=latest
   
 - name: install common packages
-  yum: pkg={{ item }} state=installed
+  yum: pkg={{ item }} state=present
   with_items: common_packages
 - name: Base | Disable IPv6
   lineinfile: dest=/etc/sysconfig/network line="NETWORKING_IPV6=no"
