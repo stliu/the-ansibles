@@ -1,4 +1,0 @@
-# file: roles/vpn/handlers/dnsmasq.yml
-
-- name: restart dnsmasq
-  service: name=dnsmasq state=restarted
