@@ -2,17 +2,18 @@
   user: root
   gather_facts: no
   vars_files: 
-    - default_vars.yaml
-    - users.yaml
-    - cassandra.yaml
-    - directories.yaml
-    - jdk.yaml
-    - supervisor.yaml
-    - python.yaml
-    - optimize.yaml
-    - kafka.yaml
-    - zookeeper.yaml
-    - nginx.yaml
+    - vars/default_vars.yaml
+    - vars/users.yaml
+    - vars/cassandra.yaml
+    - vars/directories.yaml
+    - vars/jdk.yaml
+    - vars/supervisor.yaml
+    - vars/python.yaml
+    - vars/optimize.yaml
+    - vars/kafka.yaml
+    - vars/zookeeper.yaml
+    - vars/nginx.yaml
+    - vars/ssh.yaml
   vars:
     monit_protection: true
   roles:
@@ -20,6 +21,7 @@
      - epel
      - directories
      - ssl
+     - ssh
      - hostname
      - timezone
      - base
