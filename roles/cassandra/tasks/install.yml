@@ -1,28 +1,28 @@
 # file: roles/cassandra/tasks/install.yml
 
 - name: Cassandra | Download the cassandra source in /tmp if not yet present
-  command: wget http://archive.apache.org/dist/cassandra/{{ cassandra_version }}/apache-cassandra-{{ cassandra_version }}-bin.tar.gz chdir=/tmp creates=/tmp/apache-cassandra-{{ cassandra_version }}-bin.tar.gz
+  get_url: url={{ cassandra_download_url }} dest=/tmp/apache-cassandra-{{ cassandra_version }}-bin.tar.gz
 
 - name: Cassandra | Expand the cassandra source in /usr/local/etc
-  command: tar -xvzf /tmp/apache-cassandra-{{ cassandra_version }}-bin.tar.gz chdir=/usr/local/etc creates=/usr/local/etc/apache-cassandra-{{ cassandra_version }}
+  command: tar -xvzf /tmp/apache-cassandra-{{ cassandra_version }}-bin.tar.gz chdir=/opt creates=/opt/apache-cassandra-{{ cassandra_version }}
 
 - name: Cassandra | Update the cassandra install permissions
-  file: path=/usr/local/etc/apache-cassandra-{{ cassandra_version }} owner={{ cassandra_user }} group={{ cassandra_group }} state=directory recurse=yes
+  file: path=/opt/apache-cassandra-{{ cassandra_version }} owner={{ cassandra_user }} group={{ cassandra_group }} state=directory recurse=yes
 
 - name: Cassandra | Update the symbolic link to the cassandra install
-  file: path=/usr/local/etc/cassandra src=/usr/local/etc/apache-cassandra-{{ cassandra_version }} state=link force=yes
+  file: path=/opt/cassandra src=/opt/apache-cassandra-{{ cassandra_version }} state=link force=yes
 
 - name: Cassandra | Inform the system where the cassandra-cli binary is located
-  command: update-alternatives --install "/usr/bin/cassandra-cli" "cassandra-cli" "/usr/local/etc/cassandra/bin/cassandra-cli" 1
+  command: update-alternatives --install "/usr/bin/cassandra-cli" "cassandra-cli" "/opt/cassandra/bin/cassandra-cli" 1
 
 - name: Cassandra | Inform the system that this cassandra-cli binary must be the default
-  command: update-alternatives --set cassandra-cli /usr/local/etc/cassandra/bin/cassandra-cli
+  command: update-alternatives --set cassandra-cli /opt/cassandra/bin/cassandra-cli
 
 - name: Cassandra | Inform the system where the nodetool binary is located
-  command: update-alternatives --install "/usr/bin/nodetool" "nodetool" "/usr/local/etc/cassandra/bin/nodetool" 1
+  command: update-alternatives --install "/usr/bin/nodetool" "nodetool" "/opt/cassandra/bin/nodetool" 1
 
 - name: Cassandra | Inform the system that this nodetool binary must be the default
-  command: update-alternatives --set nodetool /usr/local/etc/cassandra/bin/nodetool
+  command: update-alternatives --set nodetool /opt/cassandra/bin/nodetool
 
 
 - name: Cassandra | Make sure the local working (data) directory for cassandra is present

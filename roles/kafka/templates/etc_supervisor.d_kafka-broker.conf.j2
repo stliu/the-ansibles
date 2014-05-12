@@ -1,5 +1,5 @@
 [program:kafka-broker]
-command=env JMX_PORT={{kafka_server_JMX_PORT}} /usr/local/etc/kafka/bin/kafka-server-start.sh /usr/local/etc/kafka/config/server.properties
+command=env JMX_PORT={{kafka_server_JMX_PORT}} /opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties
 user={{kafka_user}}
 autostart=true
 autorestart=true
