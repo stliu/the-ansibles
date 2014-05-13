@@ -123,7 +123,13 @@ commitlog_directory: {{cassandra_data_root_dir}}/commitlog
 #              data at CL.ONE!
 # ignore: ignore fatal errors and let requests fail, as in pre-1.2 Cassandra
 disk_failure_policy: {{cassandra_disk_failure_policy}}
-
+# policy for commit disk failures:
+# stop: shut down gossip and Thrift, leaving the node effectively dead, but
+#       can still be inspected via JMX.
+# stop_commit: shutdown the commit log, letting writes collect but 
+#              continuing to service reads, as in pre-2.0.5 Cassandra
+# ignore: ignore fatal errors and let the batches fail
+commit_failure_policy: {{cassandra_commit_failure_policy}}
 # Maximum size of the key cache in memory.
 #
 # Each key cache hit saves 1 seek and each row cache hit saves 2 seeks at the
@@ -400,6 +406,18 @@ snapshot_before_compaction: {{cassandra_snapshot_before_compaction}}
 # lose data on truncation or drop.
 auto_snapshot: {{cassandra_auto_snapshot}}
 
+# When executing a scan, within or across a partition, we need to keep the
+# tombstones seen in memory so we can return them to the coordinator, which
+# will use them to make sure other replicas also know about the deleted rows.
+# With workloads that generate a lot of tombstones, this can cause performance
+# problems and even exaust the server heap.
+# (http://www.datastax.com/dev/blog/cassandra-anti-patterns-queues-and-queue-like-datasets)
+# Adjust the thresholds here if you understand the dangers and want to
+# scan more tombstones anyway.  These thresholds may also be adjusted at runtime
+# using the StorageService mbean.
+tombstone_warn_threshold: {{cassandra_tombstone_warn_threshold}}
+tombstone_failure_threshold: {{cassandra_tombstone_failure_threshold}}
+
 # Add column indexes to a row after its contents reach this size.
 # Increase if your column values are large, or if you have a very large
 # number of columns.  The competing causes are, Cassandra has to
@@ -607,7 +625,7 @@ request_scheduler: {{cassandra_request_scheduler}}
 # offs.  This value is not often changed, however if you have many
 # very small rows (many to an OS page), then increasing this will
 # often lower memory usage without a impact on performance.
-index_interval: {{cassandra_index_interval}}
+# index_interval: {{cassandra_index_interval}}
 
 # Enable or disable inter-node encryption
 # Default settings are TLS v1, RSA 1024-bit keys (it is imperative that

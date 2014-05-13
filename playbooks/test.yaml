@@ -37,4 +37,4 @@
      - zookeeper
      - kafka
      - tomcat
-     # - optimize
+     - optimize
