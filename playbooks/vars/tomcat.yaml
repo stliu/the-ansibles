@@ -1,5 +1,6 @@
 tomcat_version: 7.0.53
-tomcat_download_url: http://mirrors.hust.edu.cn/apache/tomcat/tomcat-7/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.tar.gz
+tomcat_download_url: http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.tar.gz
+  # http://mirrors.hust.edu.cn/apache/tomcat/tomcat-7/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.tar.gz
 
 
 tomcat_user: tomcat
