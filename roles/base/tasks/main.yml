@@ -1,36 +1,35 @@
 # 删除一些默认的group, 暂时disable掉
-# - name: remove unnessenary packages
-#   yum: pkg="@{{ item }}" state=removed
-#   with_items:
-#     - Desktop
-#     - Desktop Debugging and Performance Tools
-#     - Desktop Platform
-#     - Dial-up Networking Support
-#     - Directory Client
-#     - E-mail server
-#     - Fonts
-#     - General Purpose Desktop
-#     - Graphical Administration Tools
-#     - Input Methods
-#     - Internet Applications
-#     - Internet Browser
-#     - Java Platform
-#     - Legacy UNIX compatibility
-#     - Legacy X Window System compatibility
-#     - NFS file server
-#     - Network Infrastructure Server
-#     - Network file system client
-#     - Networking Tools
-#     - Office Suite and Productivity
-#     - Performance Tools
-#     - Perl Support
-#     - Print Server
-#     - Printing client
-#     - SNMP Support
-#     - Server Platform
-#     - Web Server
-#     - X Window System
-# 
+- name: remove unnessenary packages
+  yum: pkg="@{{ item }}" state=removed
+  with_items:
+    - Desktop
+    - Desktop Debugging and Performance Tools
+    - Desktop Platform
+    - Dial-up Networking Support
+    - Directory Client
+    - E-mail server
+    - Fonts
+    - General Purpose Desktop
+    - Graphical Administration Tools
+    - Input Methods
+    - Internet Applications
+    - Internet Browser
+    - Java Platform
+    - Legacy UNIX compatibility
+    - Legacy X Window System compatibility
+    - NFS file server
+    - Network Infrastructure Server
+    - Network file system client
+    - Networking Tools
+    - Office Suite and Productivity
+    - Performance Tools
+    - Print Server
+    - Printing client
+    - SNMP Support
+    - Server Platform
+    - Web Server
+    - X Window System
+
 - name: upgrade all packages
   yum: name=* state=latest
   

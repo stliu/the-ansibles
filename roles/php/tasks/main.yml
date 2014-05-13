@@ -1,0 +1,7 @@
+# file: roles/php/tasks/main.yml
+
+- name: PHP | Make sure php packages are installed
+  yum: pkg={{ item }} state=present
+  with_items: 
+    - php-fpm
+    - php-gd

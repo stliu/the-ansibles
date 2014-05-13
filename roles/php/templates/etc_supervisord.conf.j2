@@ -1,0 +1,5 @@
+[program:php]
+user={{nginx_user}}
+command=/usr/sbin/php-fpm -c /etc/php.ini -y /etc/php-fpm.conf
+numprocs=10
+process_name=%(program_name)s

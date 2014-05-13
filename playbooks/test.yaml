@@ -30,6 +30,7 @@
      - cron
      - python
      - jdk
+     - php
      - supervisor
      - monit
      - nginx
