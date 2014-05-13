@@ -18,9 +18,9 @@
 # - name: Zookeeper | Inform the system where the zkCli.sh binary is located
 #   alternatives: name="zkCli" path="/opt/zookeeper/bin/zkCli.sh"
 #   
-- name: Zookeeper | Inform the system where the zkCli.sh binary is located
-  command: update-alternatives --install "/usr/bin/zkCli" "zkCli" "/opt/zookeeper/bin/zkCli.sh" 1
-
-- name: Zookeeper | Inform the system that this zkCli.sh binary must be the default
-  command: update-alternatives --set zkCli /opt/zookeeper/bin/zkCli.sh
+# - name: Zookeeper | Inform the system where the zkCli.sh binary is located
+#   command: update-alternatives --install "/usr/bin/zkCli" "zkCli" "/opt/zookeeper/bin/zkCli.sh" 1
+# 
+# - name: Zookeeper | Inform the system that this zkCli.sh binary must be the default
+#   command: update-alternatives --set zkCli /opt/zookeeper/bin/zkCli.sh
 

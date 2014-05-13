@@ -2,7 +2,7 @@
 
 nginx_install_method: "source" # package also possible
 
-nginx_version: 1.5.3
+nginx_version: 1.7.0
 nginx_user: www-data
 nginx_group: www-data
 nginx_uid: 36
