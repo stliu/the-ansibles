@@ -1,0 +1,1 @@
+ansible-playbook -vv -i inventory/test.yaml playbooks/m-lvm.yaml 
