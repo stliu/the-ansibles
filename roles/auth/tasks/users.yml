@@ -12,3 +12,8 @@
 - name: Auth | Make sure the users are present
   user: name={{ item.name }} state=present uid={{ item.uid }} password={{ item.passwd }} shell={{ item.shell }} comment="{{ item.comment }}" groups={{ ",".join(item.groups) }} append={{ item.append }}
   with_items: users
+
+# - name: Auth | Generate ssh key
+#   command: ssh-keygen -q -f /home/{{item.name}}/.ssh/id_rsa -P ""
+#   with_items: users
+# # ssh-keygen  -q -f /home/vagrant/.ssh/id_rsa -P ""
