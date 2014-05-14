@@ -1,0 +1,10 @@
+# http://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_1_general/esl-erlang_17.0-1~centos~6_amd64.rpm
+
+- name: Downloading the Erlang repository definitions.
+  get_url: dest=/tmp/erlang-solutions-1.0-1.noarch.rpm url=http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm mode=0644
+
+- name: Enable the Erlang repository
+  action: command rpm -Uvh --replacepkgs /tmp/erlang-solutions-1.0-1.noarch.rpm
+  
+- name: Install Erlang
+  yum: name=erlang state=present  

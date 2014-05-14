@@ -1,6 +1,6 @@
 - hosts: all
   user: root
-  gather_facts: no
+  gather_facts: yes
   # vars_files: 
   #   - vars/default_vars.yaml
   #   - vars/users.yaml
