@@ -1,1 +1,0 @@
-ansible-playbook -vv -i  playbooks/all.yml 

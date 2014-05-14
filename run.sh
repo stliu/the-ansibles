@@ -1,1 +1,1 @@
-ansible-playbook -vv -i inventory/test.yaml playbooks/test.yaml -l nginx
+ansible-playbook -vv -i hosts site.yml 
