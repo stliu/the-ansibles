@@ -22,7 +22,7 @@
      - epel
      - directories
      - ssl
-     - ssh
+     # - ssh
      - hostname
      - timezone
      - base
