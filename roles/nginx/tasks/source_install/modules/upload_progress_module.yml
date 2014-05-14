@@ -13,5 +13,5 @@
   sudo: yes
 
 - name: Copy the source folder
-  command: sudo cp -R /tmp/nginx-upload-progress-module-{{ nginx_upload_progress_version }} /tmp/nginx-upload-progress-module
+  command: cp -R /tmp/nginx-upload-progress-module-{{ nginx_upload_progress_version }} /tmp/nginx-upload-progress-module
   sudo: yes
