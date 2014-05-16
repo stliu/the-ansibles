@@ -7,4 +7,22 @@
   action: command rpm -Uvh --replacepkgs /tmp/erlang-solutions-1.0-1.noarch.rpm
   
 - name: Install Erlang
-  yum: name=erlang state=present  
+  yum: name=erlang state=present
+  
+- name: Install dependencies
+  yum: name={{item}} state=present
+  with_items:
+    - expat-devel
+    - expat    
+    
+    
+./configure  \
+--prefix=/opt/ejabberd-14.10 \
+--sysconfdir=/etc/ejabberd \
+--datarootdir=/var/easemob/ejabberd \
+--enable-nif \
+--enable-zlib \
+# --enable-stun \
+# --enable-json \
+# --enable-iconv \
+--enable-user=stliu    

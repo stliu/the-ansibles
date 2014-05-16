@@ -101,6 +101,7 @@ python_packages:
 python_modules:
   - requests
   - virtualenv  
+  - redis
 
 #这个会被直接执行
 commands_to_optimize:

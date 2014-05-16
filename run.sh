@@ -1,1 +1,1 @@
-ansible-playbook -vv -i hosts site.yml 
+ansible-playbook -vv -i lvm-hosts site.yml 

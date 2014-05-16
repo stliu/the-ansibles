@@ -1,5 +1,8 @@
 [lvm-clusters]
-114.247.172.55
+172.205.0.48
+172.205.0.52
+172.205.0.5
+172.205.0.11
 
 [cassandra:children]
 lvm-clusters

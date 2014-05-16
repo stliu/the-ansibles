@@ -33,6 +33,7 @@
      - supervisor
      - monit
      - optimize
+     - ejabberd
 # ##########################
      # - auth
      # - epel
