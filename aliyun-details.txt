@@ -1,0 +1,749 @@
+182.92.1.148 | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.162.193.167", 
+            "182.92.1.148"
+        ], 
+        "ansible_all_ipv6_addresses": [], 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "03/11/2014", 
+        "ansible_bios_version": "4.0.1", 
+        "ansible_cmdline": {
+            "KEYBOARDTYPE": "pc", 
+            "KEYTABLE": "us", 
+            "LANG": "en_US.UTF-8", 
+            "SYSFONT": "latarcyrheb-sun16", 
+            "console": "ttyS0,9600n8", 
+            "crashkernel": "130M@0M", 
+            "quiet": true, 
+            "rd_NO_DM": true, 
+            "rd_NO_LUKS": true, 
+            "rd_NO_LVM": true, 
+            "rd_NO_MD": true, 
+            "rhgb": true, 
+            "ro": true, 
+            "root": "UUID=887b0b9e-449b-414e-a11d-cd94093e3fe1"
+        }, 
+        "ansible_date_time": {
+            "date": "2014-05-16", 
+            "day": "16", 
+            "epoch": "1400245563", 
+            "hour": "21", 
+            "iso8601": "2014-05-16T13:06:03Z", 
+            "iso8601_micro": "2014-05-16T13:06:03.626271Z", 
+            "minute": "06", 
+            "month": "05", 
+            "second": "03", 
+            "time": "21:06:03", 
+            "tz": "CST", 
+            "tz_offset": "+0800", 
+            "weekday": "Friday", 
+            "year": "2014"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "182.92.1.148", 
+            "alias": "eth1", 
+            "gateway": "182.92.3.247", 
+            "interface": "eth1", 
+            "macaddress": "00:16:3e:00:02:8c", 
+            "mtu": 1500, 
+            "netmask": "255.255.252.0", 
+            "network": "182.92.0.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_devices": {
+            "xvda": {
+                "holders": [], 
+                "host": "", 
+                "model": null, 
+                "partitions": {
+                    "xvda1": {
+                        "sectors": "41940992", 
+                        "sectorsize": 512, 
+                        "size": "20.00 GB", 
+                        "start": "2048"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "0", 
+                "scheduler_mode": "cfq", 
+                "sectors": "41943040", 
+                "sectorsize": "512", 
+                "size": "20.00 GB", 
+                "support_discard": "0", 
+                "vendor": null
+            }, 
+            "xvdb": {
+                "holders": [], 
+                "host": "", 
+                "model": null, 
+                "partitions": {
+                    "xvdb1": {
+                        "sectors": "2147483464", 
+                        "sectorsize": 512, 
+                        "size": "1024.00 GB", 
+                        "start": "56"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "0", 
+                "scheduler_mode": "cfq", 
+                "sectors": "2147483648", 
+                "sectorsize": "512", 
+                "size": "1.00 TB", 
+                "support_discard": "0", 
+                "vendor": null
+            }
+        }, 
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_major_version": "6", 
+        "ansible_distribution_release": "Final", 
+        "ansible_distribution_version": "6.5", 
+        "ansible_domain": "easemob.com", 
+        "ansible_env": {
+            "CLASSPATH": "/usr/java/jdk1.8.0_05/lib/classes.zip", 
+            "G_BROKEN_FILENAMES": "1", 
+            "HOME": "/home/easemob", 
+            "JAVA_HOME": "/usr/java/jdk1.8.0_05", 
+            "JAVA_OPTS": "-server -Xms2724M -Xmx2724M -XX:MaxNewSize=1564M  -Xss4096k -Xverify:none -XX:+UseConcMarkSweepGC  -XX:+CMSClassUnloadingEnabled", 
+            "JVM_OPTS": "-server -Xms2724M -Xmx2724M -XX:MaxNewSize=1564M  -Xss4096k -Xverify:none -XX:+UseConcMarkSweepGC  -XX:+CMSClassUnloadingEnabled", 
+            "LANG": "en_US.UTF-8", 
+            "LC_CTYPE": "en_US.UTF-8", 
+            "LESSOPEN": "|/usr/bin/lesspipe.sh %s", 
+            "LOGNAME": "easemob", 
+            "MAIL": "/var/mail/easemob", 
+            "PATH": "/opt/cassandra/bin:/opt/ejabberd/bin:/usr/java/jdk1.8.0_05/bin:/usr/local/bin:/bin:/usr/bin", 
+            "PRIVATE_HOSTNAME": "ebs-ali-beijing-3-pri", 
+            "PRIVATE_IP": "10.162.193.167", 
+            "PUBLIC_HOSTNAME": "ebs-ali-beijing-3.easemob.com", 
+            "PUBLIC_IP": "182.92.1.148", 
+            "PUBLIC_SHORT_HOSTNAME": "ebs-ali-beijing-3", 
+            "PWD": "/home/easemob", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "2", 
+            "SSH_CLIENT": "61.49.181.185 60029 22", 
+            "SSH_CONNECTION": "61.49.181.185 60029 182.92.1.148 22", 
+            "SSH_TTY": "/dev/pts/0", 
+            "TERM": "xterm-256color", 
+            "USER": "easemob", 
+            "_": "/usr/bin/python"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "ipv4": {
+                "address": "10.162.193.167", 
+                "netmask": "255.255.240.0", 
+                "network": "10.162.192.0"
+            }, 
+            "macaddress": "00:16:3e:00:02:89", 
+            "module": "xen_netfront", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth1": {
+            "active": true, 
+            "device": "eth1", 
+            "ipv4": {
+                "address": "182.92.1.148", 
+                "netmask": "255.255.252.0", 
+                "network": "182.92.0.0"
+            }, 
+            "macaddress": "00:16:3e:00:02:8c", 
+            "module": "xen_netfront", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_form_factor": "Other", 
+        "ansible_fqdn": "ebs-ali-beijing-3.easemob.com", 
+        "ansible_hostname": "ebs-ali-beijing-3", 
+        "ansible_interfaces": [
+            "lo", 
+            "eth1", 
+            "eth0"
+        ], 
+        "ansible_kernel": "2.6.32-358.6.2.el6.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "mtu": 16436, 
+            "promisc": false, 
+            "type": "loopback"
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_memfree_mb": 8907, 
+        "ansible_memtotal_mb": 15948, 
+        "ansible_mounts": [
+            {
+                "device": "/dev/xvda1", 
+                "fstype": "ext4", 
+                "mount": "/", 
+                "options": "rw", 
+                "size_available": 17691181056, 
+                "size_total": 21136797696
+            }, 
+            {
+                "device": "/dev/mapper/data-opt", 
+                "fstype": "ext4", 
+                "mount": "/opt", 
+                "options": "rw", 
+                "size_available": 424341610496, 
+                "size_total": 448089587712
+            }, 
+            {
+                "device": "/dev/mapper/data-easemob", 
+                "fstype": "ext4", 
+                "mount": "/var/easemob", 
+                "options": "rw", 
+                "size_available": 600731738112, 
+                "size_total": 634136567808
+            }
+        ], 
+        "ansible_nodename": "ebs-ali-beijing-3.easemob.com", 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_processor": [
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz"
+        ], 
+        "ansible_processor_cores": 1, 
+        "ansible_processor_count": 8, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 8, 
+        "ansible_product_name": "HVM domU", 
+        "ansible_product_serial": "NA", 
+        "ansible_product_uuid": "NA", 
+        "ansible_product_version": "4.0.1", 
+        "ansible_python_version": "2.6.6", 
+        "ansible_selinux": {
+            "status": "disabled"
+        }, 
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAK9I5qDH3bMbRhdVumxz4m0tp1sB+7iSJhHkD4JWIdphyYhM7Qxi/lhGElBg7h61z3oEZhhLVB3lIlEWi2CjdzGg6of4cj4GkDzgf1keGR3NksoWqgc01usc+HEkL/MWDGARZhv6KcOLcicgX9My8+oU2W7nesa+XuxxTUxw3zPxAAAAFQCIw9cBL1SH2FLgTav52vFLv+poCwAAAIEAlqad0Lv9CoFvYTMuan5SdsPVMJeWRLGET9pPRa0j36MFisC5zzxj7YK7Ubg7bRNHeYGyFvzizGZ3IuSDvpjlauP0z0ZW1xiykNeHh1HtImEdX9/Ir795qZiBwosGab3q/ujhAyZKTO8n+4D18WkHsTB9+Jtx55pLIzM/0CrlIakAAACAfB+LnEnYNDTY3CBL6H4a8k4xyVce313Td+PvTJp1lb6ZoCDMtJNXSl8bNJ6guPmtXOEdBjzIBKjzKLFSCqO5VJarv4R6Or6yY55OtplKbgwDaH2DKQCcBd4xyYAePxoby6DW8kHbq4nJ21GQKsWxtdzkRLQo1PP7Wy2yXzCiBRo=", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEAscvvwHvh9r5WnHfHMfnKfI0G+kPXgGaglCKZQkd1haUxjqZ39JDd0maKdtR23nAkZkOda+L2qHKe283mRnNkfkyGZrf/pV0O0lpkGKBdlN05AiSgOs9TXCmbBAWKGL4l5j+g5srPSB0vwvK9x8f8iP2jyy5bedRS+5uwOn5EBmj1oPEYc2hfNf7tkxFyQ3pWbcm3XXNw73Jb1iVd5NIfUmbqTaeJhtVEISjIOT9K/qqZzGT5ceNKBxP+qKLQcuZeuoJ1EuF3Fiba+qHxsLpKWHxxxjvy0d25nhCh68ksNehdPIlXVvlc9dtieNSFofDtqSxAqIdc+xiraoHX4FwuHw==", 
+        "ansible_swapfree_mb": 0, 
+        "ansible_swaptotal_mb": 0, 
+        "ansible_system": "Linux", 
+        "ansible_system_vendor": "Xen", 
+        "ansible_user_id": "easemob", 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64", 
+        "ansible_virtualization_role": "guest", 
+        "ansible_virtualization_type": "xen", 
+        "module_setup": true
+    }, 
+    "changed": false
+}
+
+182.92.1.104 | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.162.193.168", 
+            "182.92.1.104"
+        ], 
+        "ansible_all_ipv6_addresses": [], 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "03/11/2014", 
+        "ansible_bios_version": "4.0.1", 
+        "ansible_cmdline": {
+            "KEYBOARDTYPE": "pc", 
+            "KEYTABLE": "us", 
+            "LANG": "en_US.UTF-8", 
+            "SYSFONT": "latarcyrheb-sun16", 
+            "console": "ttyS0,9600n8", 
+            "crashkernel": "130M@0M", 
+            "quiet": true, 
+            "rd_NO_DM": true, 
+            "rd_NO_LUKS": true, 
+            "rd_NO_LVM": true, 
+            "rd_NO_MD": true, 
+            "rhgb": true, 
+            "ro": true, 
+            "root": "UUID=887b0b9e-449b-414e-a11d-cd94093e3fe1"
+        }, 
+        "ansible_date_time": {
+            "date": "2014-05-16", 
+            "day": "16", 
+            "epoch": "1400245563", 
+            "hour": "21", 
+            "iso8601": "2014-05-16T13:06:03Z", 
+            "iso8601_micro": "2014-05-16T13:06:03.679603Z", 
+            "minute": "06", 
+            "month": "05", 
+            "second": "03", 
+            "time": "21:06:03", 
+            "tz": "CST", 
+            "tz_offset": "+0800", 
+            "weekday": "Friday", 
+            "year": "2014"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "182.92.1.104", 
+            "alias": "eth1", 
+            "gateway": "182.92.3.247", 
+            "interface": "eth1", 
+            "macaddress": "00:16:3e:00:02:8d", 
+            "mtu": 1500, 
+            "netmask": "255.255.252.0", 
+            "network": "182.92.0.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_devices": {
+            "xvda": {
+                "holders": [], 
+                "host": "", 
+                "model": null, 
+                "partitions": {
+                    "xvda1": {
+                        "sectors": "41940992", 
+                        "sectorsize": 512, 
+                        "size": "20.00 GB", 
+                        "start": "2048"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "0", 
+                "scheduler_mode": "cfq", 
+                "sectors": "41943040", 
+                "sectorsize": "512", 
+                "size": "20.00 GB", 
+                "support_discard": "0", 
+                "vendor": null
+            }, 
+            "xvdb": {
+                "holders": [], 
+                "host": "", 
+                "model": null, 
+                "partitions": {
+                    "xvdb1": {
+                        "sectors": "2147483464", 
+                        "sectorsize": 512, 
+                        "size": "1024.00 GB", 
+                        "start": "56"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "0", 
+                "scheduler_mode": "cfq", 
+                "sectors": "2147483648", 
+                "sectorsize": "512", 
+                "size": "1.00 TB", 
+                "support_discard": "0", 
+                "vendor": null
+            }
+        }, 
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_major_version": "6", 
+        "ansible_distribution_release": "Final", 
+        "ansible_distribution_version": "6.5", 
+        "ansible_domain": "easemob.com", 
+        "ansible_env": {
+            "CLASSPATH": "/usr/java/jdk1.8.0_05/lib/classes.zip", 
+            "G_BROKEN_FILENAMES": "1", 
+            "HOME": "/home/easemob", 
+            "JAVA_HOME": "/usr/java/jdk1.8.0_05", 
+            "JAVA_OPTS": "-server -Xms2724M -Xmx2724M -XX:MaxNewSize=1564M  -Xss4096k -Xverify:none -XX:+UseConcMarkSweepGC  -XX:+CMSClassUnloadingEnabled", 
+            "JVM_OPTS": "-server -Xms2724M -Xmx2724M -XX:MaxNewSize=1564M  -Xss4096k -Xverify:none -XX:+UseConcMarkSweepGC  -XX:+CMSClassUnloadingEnabled", 
+            "LANG": "en_US.UTF-8", 
+            "LC_CTYPE": "en_US.UTF-8", 
+            "LESSOPEN": "|/usr/bin/lesspipe.sh %s", 
+            "LOGNAME": "easemob", 
+            "MAIL": "/var/mail/easemob", 
+            "PATH": "/opt/cassandra/bin:/opt/ejabberd/bin:/usr/java/jdk1.8.0_05/bin:/usr/local/bin:/bin:/usr/bin", 
+            "PRIVATE_HOSTNAME": "ebs-ali-beijing-2-pri", 
+            "PRIVATE_IP": "10.162.193.168", 
+            "PUBLIC_HOSTNAME": "ebs-ali-beijing-2.easemob.com", 
+            "PUBLIC_IP": "182.92.1.104", 
+            "PUBLIC_SHORT_HOSTNAME": "ebs-ali-beijing-2", 
+            "PWD": "/home/easemob", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "2", 
+            "SSH_CLIENT": "61.49.181.185 60030 22", 
+            "SSH_CONNECTION": "61.49.181.185 60030 182.92.1.104 22", 
+            "SSH_TTY": "/dev/pts/0", 
+            "TERM": "xterm-256color", 
+            "USER": "easemob", 
+            "_": "/usr/bin/python"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "ipv4": {
+                "address": "10.162.193.168", 
+                "netmask": "255.255.240.0", 
+                "network": "10.162.192.0"
+            }, 
+            "macaddress": "00:16:3e:00:02:8a", 
+            "module": "xen_netfront", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth1": {
+            "active": true, 
+            "device": "eth1", 
+            "ipv4": {
+                "address": "182.92.1.104", 
+                "netmask": "255.255.252.0", 
+                "network": "182.92.0.0"
+            }, 
+            "macaddress": "00:16:3e:00:02:8d", 
+            "module": "xen_netfront", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_form_factor": "Other", 
+        "ansible_fqdn": "ebs-ali-beijing-2.easemob.com", 
+        "ansible_hostname": "ebs-ali-beijing-2", 
+        "ansible_interfaces": [
+            "lo", 
+            "eth1", 
+            "eth0"
+        ], 
+        "ansible_kernel": "2.6.32-358.6.2.el6.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "mtu": 16436, 
+            "promisc": false, 
+            "type": "loopback"
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_memfree_mb": 5805, 
+        "ansible_memtotal_mb": 15948, 
+        "ansible_mounts": [
+            {
+                "device": "/dev/xvda1", 
+                "fstype": "ext4", 
+                "mount": "/", 
+                "options": "rw", 
+                "size_available": 17958154240, 
+                "size_total": 21136797696
+            }, 
+            {
+                "device": "/dev/mapper/data-opt", 
+                "fstype": "ext4", 
+                "mount": "/opt", 
+                "options": "rw", 
+                "size_available": 99362983936, 
+                "size_total": 105689415680
+            }, 
+            {
+                "device": "/dev/mapper/data-easemob", 
+                "fstype": "ext4", 
+                "mount": "/var/easemob", 
+                "options": "rw", 
+                "size_available": 600604155904, 
+                "size_total": 634136567808
+            }
+        ], 
+        "ansible_nodename": "ebs-ali-beijing-2.easemob.com", 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_processor": [
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz"
+        ], 
+        "ansible_processor_cores": 1, 
+        "ansible_processor_count": 8, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 8, 
+        "ansible_product_name": "HVM domU", 
+        "ansible_product_serial": "NA", 
+        "ansible_product_uuid": "NA", 
+        "ansible_product_version": "4.0.1", 
+        "ansible_python_version": "2.6.6", 
+        "ansible_selinux": {
+            "status": "disabled"
+        }, 
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAMbD2ShldYPZCO0crHCHdpRmkNiDf1kR73eRw2kWcJLaiUoEk+jInlQ1a7WtfymlFEOT9t6AgGIauI4SvLXEXYkODb/gzigoPx7dmUwm+p9orq6vkiGx2tAqirtrT5Ksy65L2ttPR8flPVvjiQ0I3SgyZEPRg27HXO3zHIx3BbdJAAAAFQDnzSW3yQdmeAegPuiH2RxVyAiAoQAAAIEAg+vpONuqz+1CFt5aXjswSZiDe4xTi+ARFSAnQdtCNMzvDgmO50JWujYvEkEqbR9SE0qslNeB4LZRh+jDYBfwk2+yufqgeYw5oS8ykr+nHd14Ri7FAH3WuOu6uxtlUIJB82bHPCmd+cwMipeHh+isHOKd1XjtKj0WCFhK1OMnIgUAAACAQJGW37VF5E7X+1KA7A4OxlH4+wfVUzqOz99X2OSsWOIn2MvXE6GhB5mLcUrxk5VSY/vL7ItoMX8Et2QsQt1GCO8UNoH/6I0KPICJoVFw1eoQvqT8Jmco1BpcM5C16NgerTh3bn1o4RJlQ2CfJqmDpKmgppHa4V3AVjOTI3l93fc=", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEA2k7FW2Jk+9Lyb1b3kKd4wqYEqgQ1j7Q674S4A27btKedxJA02knMo2/9T7GXasxYYseHTbmbd+mzCLnuuc/FlRw5ycAqnWdT+T3F2rRVHTCB9b504LRUdQ1/4lF7e2sdTSsLMgFVh/qa+2SWNK5VSCmwXm7jtcuS/QHe6Ra7GRM0YcwoyImTYKxGTQIAhDwgcYcoG4eXel71SIx61cYZan4rAsQyGmLDNhNyVmVMoxrREPIrMFKJ3FImDwzLccEn0Qto1FFZiruR2Sl0MNy6ZUMdcltu1zbro28gvBGU6d5/b5eMz14+v7Ym8Ubt9ZgUM2jD+AYP/sECpoKnNmuUPQ==", 
+        "ansible_swapfree_mb": 0, 
+        "ansible_swaptotal_mb": 0, 
+        "ansible_system": "Linux", 
+        "ansible_system_vendor": "Xen", 
+        "ansible_user_id": "easemob", 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64", 
+        "ansible_virtualization_role": "guest", 
+        "ansible_virtualization_type": "xen", 
+        "module_setup": true
+    }, 
+    "changed": false
+}
+
+182.92.1.164 | success >> {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.162.193.169", 
+            "182.92.1.164"
+        ], 
+        "ansible_all_ipv6_addresses": [], 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "03/11/2014", 
+        "ansible_bios_version": "4.0.1", 
+        "ansible_cmdline": {
+            "KEYBOARDTYPE": "pc", 
+            "KEYTABLE": "us", 
+            "LANG": "en_US.UTF-8", 
+            "SYSFONT": "latarcyrheb-sun16", 
+            "console": "ttyS0,9600n8", 
+            "crashkernel": "130M@0M", 
+            "quiet": true, 
+            "rd_NO_DM": true, 
+            "rd_NO_LUKS": true, 
+            "rd_NO_LVM": true, 
+            "rd_NO_MD": true, 
+            "rhgb": true, 
+            "ro": true, 
+            "root": "UUID=887b0b9e-449b-414e-a11d-cd94093e3fe1"
+        }, 
+        "ansible_date_time": {
+            "date": "2014-05-16", 
+            "day": "16", 
+            "epoch": "1400245563", 
+            "hour": "21", 
+            "iso8601": "2014-05-16T13:06:03Z", 
+            "iso8601_micro": "2014-05-16T13:06:03.692985Z", 
+            "minute": "06", 
+            "month": "05", 
+            "second": "03", 
+            "time": "21:06:03", 
+            "tz": "CST", 
+            "tz_offset": "+0800", 
+            "weekday": "Friday", 
+            "year": "2014"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "182.92.1.164", 
+            "alias": "eth1", 
+            "gateway": "182.92.3.247", 
+            "interface": "eth1", 
+            "macaddress": "00:16:3e:00:02:8e", 
+            "mtu": 1500, 
+            "netmask": "255.255.252.0", 
+            "network": "182.92.0.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_devices": {
+            "xvda": {
+                "holders": [], 
+                "host": "", 
+                "model": null, 
+                "partitions": {
+                    "xvda1": {
+                        "sectors": "41940992", 
+                        "sectorsize": 512, 
+                        "size": "20.00 GB", 
+                        "start": "2048"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "0", 
+                "scheduler_mode": "cfq", 
+                "sectors": "41943040", 
+                "sectorsize": "512", 
+                "size": "20.00 GB", 
+                "support_discard": "0", 
+                "vendor": null
+            }, 
+            "xvdb": {
+                "holders": [], 
+                "host": "", 
+                "model": null, 
+                "partitions": {
+                    "xvdb1": {
+                        "sectors": "2147472747", 
+                        "sectorsize": 512, 
+                        "size": "1023.99 GB", 
+                        "start": "63"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "0", 
+                "scheduler_mode": "cfq", 
+                "sectors": "2147483648", 
+                "sectorsize": "512", 
+                "size": "1.00 TB", 
+                "support_discard": "0", 
+                "vendor": null
+            }
+        }, 
+        "ansible_distribution": "CentOS", 
+        "ansible_distribution_major_version": "6", 
+        "ansible_distribution_release": "Final", 
+        "ansible_distribution_version": "6.5", 
+        "ansible_domain": "easemob.com", 
+        "ansible_env": {
+            "CLASSPATH": "/usr/java/jdk1.8.0_05/lib/classes.zip", 
+            "G_BROKEN_FILENAMES": "1", 
+            "HOME": "/home/easemob", 
+            "JAVA_HOME": "/usr/java/jdk1.8.0_05", 
+            "JAVA_OPTS": "-server -Xms2724M -Xmx2724M -XX:MaxNewSize=1564M  -Xss4096k -Xverify:none -XX:+UseConcMarkSweepGC  -XX:+CMSClassUnloadingEnabled", 
+            "JVM_OPTS": "-server -Xms2724M -Xmx2724M -XX:MaxNewSize=1564M  -Xss4096k -Xverify:none -XX:+UseConcMarkSweepGC  -XX:+CMSClassUnloadingEnabled", 
+            "LANG": "en_US.UTF-8", 
+            "LC_CTYPE": "en_US.UTF-8", 
+            "LESSOPEN": "|/usr/bin/lesspipe.sh %s", 
+            "LOGNAME": "easemob", 
+            "MAIL": "/var/mail/easemob", 
+            "PATH": "/opt/cassandra/bin:/opt/ejabberd/bin:/usr/java/jdk1.8.0_05/bin:/usr/local/bin:/bin:/usr/bin", 
+            "PRIVATE_HOSTNAME": "ebs-ali-beijing-1-pri", 
+            "PRIVATE_IP": "10.162.193.169", 
+            "PUBLIC_HOSTNAME": "ebs-ali-beijing-1.easemob.com", 
+            "PUBLIC_IP": "182.92.1.164", 
+            "PUBLIC_SHORT_HOSTNAME": "ebs-ali-beijing-1", 
+            "PWD": "/home/easemob", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "2", 
+            "SSH_CLIENT": "61.49.181.185 60031 22", 
+            "SSH_CONNECTION": "61.49.181.185 60031 182.92.1.164 22", 
+            "SSH_TTY": "/dev/pts/1", 
+            "TERM": "xterm-256color", 
+            "USER": "easemob", 
+            "_": "/usr/bin/python"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "ipv4": {
+                "address": "10.162.193.169", 
+                "netmask": "255.255.240.0", 
+                "network": "10.162.192.0"
+            }, 
+            "macaddress": "00:16:3e:00:02:8b", 
+            "module": "xen_netfront", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_eth1": {
+            "active": true, 
+            "device": "eth1", 
+            "ipv4": {
+                "address": "182.92.1.164", 
+                "netmask": "255.255.252.0", 
+                "network": "182.92.0.0"
+            }, 
+            "macaddress": "00:16:3e:00:02:8e", 
+            "module": "xen_netfront", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "type": "ether"
+        }, 
+        "ansible_form_factor": "Other", 
+        "ansible_fqdn": "ebs-ali-beijing-1.easemob.com", 
+        "ansible_hostname": "ebs-ali-beijing-1", 
+        "ansible_interfaces": [
+            "lo", 
+            "eth1", 
+            "eth0"
+        ], 
+        "ansible_kernel": "2.6.32-358.6.2.el6.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "mtu": 16436, 
+            "promisc": false, 
+            "type": "loopback"
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_memfree_mb": 3647, 
+        "ansible_memtotal_mb": 15948, 
+        "ansible_mounts": [
+            {
+                "device": "/dev/xvda1", 
+                "fstype": "ext4", 
+                "mount": "/", 
+                "options": "rw", 
+                "size_available": 17709846528, 
+                "size_total": 21136797696
+            }, 
+            {
+                "device": "/dev/mapper/data-opt", 
+                "fstype": "ext4", 
+                "mount": "/opt", 
+                "options": "rw", 
+                "size_available": 99154030592, 
+                "size_total": 105689415680
+            }, 
+            {
+                "device": "/dev/mapper/data-easemob", 
+                "fstype": "ext4", 
+                "mount": "/var/easemob", 
+                "options": "rw", 
+                "size_available": 600516849664, 
+                "size_total": 634136567808
+            }
+        ], 
+        "ansible_nodename": "ebs-ali-beijing-1.easemob.com", 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_processor": [
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz", 
+            "Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz"
+        ], 
+        "ansible_processor_cores": 1, 
+        "ansible_processor_count": 8, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 8, 
+        "ansible_product_name": "HVM domU", 
+        "ansible_product_serial": "NA", 
+        "ansible_product_uuid": "NA", 
+        "ansible_product_version": "4.0.1", 
+        "ansible_python_version": "2.6.6", 
+        "ansible_selinux": {
+            "status": "disabled"
+        }, 
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAMIzp48LshXCFb3WLMWL26cmxM99vz1CpyUXiu8QuxBohwtIq6FuszMldEs5KCdC4XHnBRImzJJ6BkuBxqm3vzdyaZKmRtd7VTJ5TB98zeYw+gj3sYCnC4k/mdQR/6xjf/FGFi0cmgtD8gTCoTBjA3PcGNxA/+JOz/omFNL5PRavAAAAFQDI/S7XdqM3z7I4BVDyd8AjVvfSGQAAAIBejJ/WzE5b/u5GaO5INqN5Sm3X6QnsV8Sj38M9xWxXA3DwSgCqHt668JA2hj9lcGpAGd0Usgx+QEz0AqrJhyyMvP8X8NZT4jpEM/MIfT7xDaB4w6PHsJovQIYaAWAJ43N6NpuqTI3tcSUytLdM++ZojEJ7TOETeEq2CVAsKkwI3QAAAIAAg+IYU0H2W0MtDnMmIG2Jyzwj1TXGBEafymP3kxiQM/R1EEc6tYDsJtdiu29pymFVIz1NozYUL6ytPBZD8V6cimX9sEdHA6FvqUHa7KFxMIfcqanJHHYKQ+++8ZWRDYNrTZk2dl0qEjMsMSer6v9ScBZ9DVZRBF5NtCf3GWkPmA==", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAABIwAAAQEAscggjM1uGAaBnr7heyRfM8R6pmI8DTJqcMTneMsJ/t5XfKMur2GDg54LeqX8aQBFIeGdhh8WuPTiuAOFs5yCYe6BFuMwwC93g8KZTanlm99x3B2UeojFK/Dl1J6J6Rj/KzG5YeaIlJ13Lmkpdev+zDyQXV/HedoJwReZD5eKzbtIyftIerlYZu6EoGXPv+8i883OtJGEPgm2KpPpBAjzxwTxM03ixLhd+N4SJXz2kNBO+pyFzk5xGNTdpRVbVprBEhwYscvhKY2qbII6zePRrFOj7pn/OIvVQcW7oowTyIcvbnHPJD5QWZd7aoFbHWzWybrXhUIh2j4BaJKZhdLRrQ==", 
+        "ansible_swapfree_mb": 0, 
+        "ansible_swaptotal_mb": 0, 
+        "ansible_system": "Linux", 
+        "ansible_system_vendor": "Xen", 
+        "ansible_user_id": "easemob", 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64", 
+        "ansible_virtualization_role": "guest", 
+        "ansible_virtualization_type": "xen", 
+        "module_setup": true
+    }, 
+    "changed": false
+}

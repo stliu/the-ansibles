@@ -1,22 +1,6 @@
 - hosts: all
   user: root
   gather_facts: yes
-  # vars_files: 
-  #   - vars/default_vars.yaml
-  #   - vars/users.yaml
-  #   - vars/cassandra.yaml
-  #   - vars/directories.yaml
-  #   - vars/jdk.yaml
-  #   - vars/supervisor.yaml
-  #   - vars/python.yaml
-  #   - vars/optimize.yaml
-  #   - vars/kafka.yaml
-  #   - vars/zookeeper.yaml
-  #   - vars/nginx.yaml
-  #   - vars/ssh.yaml
-  #   - vars/tomcat.yaml
-  vars:
-    monit_protection: true
   roles:
      - auth
      - epel
@@ -33,26 +17,41 @@
      - supervisor
      - monit
      - optimize
-     - ejabberd
-# ##########################
-     # - auth
-     # - epel
-     # - directories
-     # - ssl
-     # - ssh
-     # - hostname
-     # - timezone
-     # - base
-     # - build
-     # - cron
-     # - python
-     # - jdk
-     # - php
-     # - supervisor
-     # - monit
-     # - nginx
-     # - cassandra
-     # - zookeeper
-     # - kafka
      # - tomcat
-     # - optimize
+     
+- hosts: cassandra
+  user: root
+  gather_facts: yes
+  roles:
+     - cassandra
+
+- hosts: ejabberd
+  user: root
+  gather_facts: yes
+  roles:
+     - ejabberd
+
+- hosts: nginx
+  user: root
+  gather_facts: yes
+  roles:
+     - nginx
+     - php
+
+- hosts: zookeeper
+  user: root
+  gather_facts: yes
+  roles:
+     - zookeeper
+
+- hosts: kafka
+  user: root
+  gather_facts: yes
+  roles:
+     - kafka
+     
+- hosts: tomcat
+  user: root
+  gather_facts: yes
+  roles:
+     - tomcat     
