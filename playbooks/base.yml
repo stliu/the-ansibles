@@ -6,7 +6,6 @@
      - epel
      - directories
      - ssl
-     # - ssh
      - hostname
      - timezone
      - base
@@ -17,19 +16,7 @@
      - supervisor
      - monit
      - optimize
-     # - tomcat
-     
-- hosts: cassandra
-  user: root
-  gather_facts: yes
-  roles:
-     - cassandra
 
-- hosts: ejabberd
-  user: root
-  gather_facts: yes
-  roles:
-     - ejabberd
 
 - hosts: nginx
   user: root
@@ -50,8 +37,4 @@
   roles:
      - kafka
      
-- hosts: tomcat
-  user: root
-  gather_facts: yes
-  roles:
-     - tomcat     
+    

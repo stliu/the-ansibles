@@ -5,3 +5,9 @@ To get the ansible varibles:
 run a command on mutil hosts:
 
     ansible -i 'inventory file' 'hosts' -a 'command such as date'
+    
+    for example:
+    
+    ansible -i inventory/aliyun all -m ping -u easemob
+    
+    ansible -i inventory/aliyun all -a 'date' -u easemob

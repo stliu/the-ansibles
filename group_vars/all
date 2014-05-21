@@ -41,6 +41,7 @@ common_packages:
   - iotop
   - nmap
   - screen
+  - libselinux-python
 ## EPEL #############################################
 epel_download_url: http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 

@@ -5,7 +5,7 @@
   notify:
     - restart tomcat
 
-- name: Tomcat | Update the tomcat myid identifier
-  template: src=myid.j2 dest={{ tomcat_data_dir }}/myid owner={{ tomcat_user }} group={{ tomcat_group }} mode=0644
-  notify:
-    - restart tomcat
+# - name: Tomcat | Update the tomcat myid identifier
+#   template: src=myid.j2 dest={{ tomcat_data_dir }}/myid owner={{ tomcat_user }} group={{ tomcat_group }} mode=0644
+#   notify:
+#     - restart tomcat

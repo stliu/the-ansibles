@@ -16,13 +16,13 @@
     - expat    
     
     
-./configure  \
---prefix=/opt/ejabberd-14.10 \
---sysconfdir=/etc/ejabberd \
---datarootdir=/var/easemob/ejabberd \
---enable-nif \
---enable-zlib \
+# ./configure  \
+# --prefix=/opt/ejabberd-14.10 \
+# --sysconfdir=/etc/ejabberd \
+# --datarootdir=/var/easemob/ejabberd \
+# --enable-nif \
+# --enable-zlib \
 # --enable-stun \
 # --enable-json \
 # --enable-iconv \
---enable-user=stliu    
+# --enable-user=stliu    

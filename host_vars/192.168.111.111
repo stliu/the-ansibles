@@ -1,0 +1,18 @@
+# the full qualified domain name, same as `hostname -v`
+fqdn: ebs1.easemob.com
+hostname: ebs1
+
+
+cassandra_listen_address: ebs1
+cassandra_seeds:
+  - ebs1
+cassandra_broadcast_address: "ebs1.easemob.com"
+cassandra_rpc_address: ebs1
+
+
+kafka_host_name: ebs1
+kafka_server_zookeeper_connect:
+  - ebs1:2181
+  
+zookeeper_servers:
+  1: ebs1  

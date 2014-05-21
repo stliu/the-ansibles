@@ -1,1 +1,3 @@
-- include: playbooks/all.yml
+- include: playbooks/base.yml
+- include: playbooks/ejabberd.yml
+- include: playbooks/rest.yml
