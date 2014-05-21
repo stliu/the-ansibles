@@ -1,7 +1,0 @@
-- name: Tomcat | Make sure tomcat is not running under supervisord
-  supervisorctl: name=tomcat state=stopped
-
-- include: user.yml
-- include: install.yml
-# - include: configure.yml
-- include: supervise_tomcat.yml

@@ -7,7 +7,9 @@
      - build
      - epel
      - directories
-     - firewall
+     # - firewall
+     # - security
+     - ssh
      - ssl
      - hostname
      - timezone
@@ -18,34 +20,25 @@
      - monit
      - optimize
 
-
-
-
-- hosts: ejabberd
-  user: root
-  gather_facts: yes
-  roles:
-     - ejabberd
-
-- hosts: redis
-  user: root
-  gather_facts: yes
-  roles:
-    - redis
-    
-- hosts: tomcat
-  user: root
-  gather_facts: yes
-  roles:
-     - tomcat 
-     
 - hosts: cassandra
   user: root
   gather_facts: yes
   roles:
      - cassandra
      
-- hosts: nginx
+- hosts: kafka
+  user: root
+  gather_facts: yes
+  roles:
+     - kafka  
+     
+- hosts: usergrid
+  user: root
+  gather_facts: yes
+  roles:
+     - usergrid
+     
+- hosts: web
   user: root
   gather_facts: yes
   roles:
@@ -59,9 +52,22 @@
   roles:
      - zookeeper
 
-- hosts: kafka
+- hosts: ejabberd
   user: root
   gather_facts: yes
   roles:
-     - kafka
-                  
+     - ejabberd
+
+- hosts: redis
+  user: root
+  gather_facts: yes
+  roles:
+    - redis
+    
+
+     
+
+     
+
+
+                                    

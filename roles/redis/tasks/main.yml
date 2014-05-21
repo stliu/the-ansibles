@@ -1,0 +1,31 @@
+- name: Redis | Make sure the redis group is present
+  group:  gid={{ redis_gid }} name={{ redis_group }} state=present
+
+
+- name: Redis | Make sure the redis user is present
+  user: uid={{ redis_uid }} name={{ redis_user }} group={{ redis_group }} shell=/sbin/nologin state=present comment="redis user"
+
+
+- name: Redis | Make sure redis data directory present
+  file: path={{ redis_data_dir }} state=directory owner={{ redis_user }} group={{ redis_group }} mode=0750
+
+- name: Redis | Install redis
+  yum: pkg={{ item }} state=present
+  with_items: 
+    - redis
+    - hiredis
+    - hiredis-devel
+    - python-redis
+
+- name: Redis | Install the supervisord redis script
+  template: src=etc_supervisor.d_redis.conf.j2 dest=/etc/supervisor.d/redis.conf owner=root group=root mode=0644
+  notify:
+    - restart supervisor
+
+- name: Redis | Configure the redis servers
+  template: src=etc_redis.conf.j2 dest=/etc/redis.conf
+  notify:
+    - restart redis    
+
+
+    

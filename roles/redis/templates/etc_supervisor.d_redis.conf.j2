@@ -1,0 +1,12 @@
+[program:redis]
+command = /usr/local/bin/redis-server /etc/redis.conf
+autostart=true   
+autorestart=true 
+startsecs=10
+user=easemob
+startretries=999
+log_stdout=true
+log_stderr=true
+logfile=/var/log/redis/redis-server.out
+logfile_maxbytes=20MB
+logfile_backups=10

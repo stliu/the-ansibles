@@ -1,7 +1,7 @@
 # file: roles/security/tasks/fail2ban.yml
 
 - name: Security | fail2ban | Make sure fail2ban is installed
-  apt: pkg=fail2ban
+  yum: name=fail2ban state=present
 
 - name: Security | fail2ban | Copy the fail2ban configuration - Pt. 1
   copy: src=fail2ban/etc_fail2ban_fail2ban.conf dest=/etc/fail2ban/fail2ban.conf owner=root group=root mode=0644

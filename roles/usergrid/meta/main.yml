@@ -6,6 +6,3 @@ dependencies:
   - { role: python }
   - { role: jdk }
   - { role: supervisor }
-  - { role: tomcat }
-  - { role: zookeeper }
-  - { role: cassandra }

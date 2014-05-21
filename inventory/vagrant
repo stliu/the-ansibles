@@ -16,11 +16,9 @@ vagrant
 [zookeeper:children]
 vagrant
 
-[tomcat:children]
-vagrant
-
 [ejabberd:children]
 vagrant
 
-[nginx:children]
+
+[redis:children]
 vagrant
