@@ -1,5 +1,0 @@
-- hosts: ejabberd
-  user: root
-  gather_facts: yes
-  roles:
-     - ejabberd

@@ -1,0 +1,4 @@
+# file: roles/cassandra/meta/main.yml
+
+dependencies:
+  - { role: epel }

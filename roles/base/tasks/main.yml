@@ -1,5 +1,5 @@
 # 删除一些默认的group, 暂时disable掉
-- name: remove unnessenary packages
+- name: Base | Remove unnessenary packages
   yum: pkg="@{{ item }}" state=removed
   with_items:
     - Desktop
@@ -30,11 +30,12 @@
     - Web Server
     - X Window System
 
-- name: upgrade all packages
+- name: Base | Upgrade all packages
   yum: name=* state=latest
   
-- name: install common packages
+- name: Base | Install common packages
   yum: pkg={{ item }} state=present
   with_items: common_packages
+  
 - name: Base | Disable IPv6
   lineinfile: dest=/etc/sysconfig/network line="NETWORKING_IPV6=no"

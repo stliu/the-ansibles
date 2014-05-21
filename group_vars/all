@@ -19,7 +19,10 @@ directories_additional:
     owner: easemob
     group: easemob
     mode: '0755'    
-
+  - path: /opt/easemob
+    owner: easemob
+    group: easemob
+    mode: '0755' 
 
 common_packages:
   - libyaml
@@ -42,6 +45,7 @@ common_packages:
   - nmap
   - screen
   - libselinux-python
+  
 ## EPEL #############################################
 epel_download_url: http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 

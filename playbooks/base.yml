@@ -3,13 +3,14 @@
   gather_facts: yes
   roles:
      - auth
+     - base
+     - build
      - epel
      - directories
+     - firewall
      - ssl
      - hostname
      - timezone
-     - base
-     - build
      - cron
      - python
      - jdk
@@ -18,13 +19,40 @@
      - optimize
 
 
+
+
+- hosts: ejabberd
+  user: root
+  gather_facts: yes
+  roles:
+     - ejabberd
+
+- hosts: redis
+  user: root
+  gather_facts: yes
+  roles:
+    - redis
+    
+- hosts: tomcat
+  user: root
+  gather_facts: yes
+  roles:
+     - tomcat 
+     
+- hosts: cassandra
+  user: root
+  gather_facts: yes
+  roles:
+     - cassandra
+     
 - hosts: nginx
   user: root
   gather_facts: yes
   roles:
      - nginx
      - php
-
+     
+     
 - hosts: zookeeper
   user: root
   gather_facts: yes
@@ -36,5 +64,4 @@
   gather_facts: yes
   roles:
      - kafka
-     
-    
+                  
