@@ -1,4 +1,2 @@
-# file: roles/firewall/handlers/ferm.yml
-
-- name: reload ferm
-  command: /etc/init.d/ferm reload
+- name: restart iptables
+  service: name=iptables state=restarted

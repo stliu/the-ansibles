@@ -1,5 +1,5 @@
 # file: roles/cassandra/defaults/main.yml
-
+is_cassandra_seed: true
 cassandra_version: "2.0.7"
 cassandra_download_url: http://archive.apache.org/dist/cassandra/{{ cassandra_version }}/apache-cassandra-{{ cassandra_version }}-bin.tar.gz
 cassandra_user: "cassandra"
@@ -20,19 +20,22 @@ cassandra_data_root_dir: /var/easemob/cassandra
 # address associated with the hostname (it might not be).
 #
 # Setting this to 0.0.0.0 is always wrong.
-cassandra_listen_address: localhost
+cassandra_listen_address: "{{ hostname }}"
 cassandra_seeds:
   - localhost
+  
 # Address to broadcast to other Cassandra nodes
 # Leaving this blank will set it to the same value as listen_address  
-cassandra_broadcast_address: ""
+
+cassandra_broadcast_address: "{{ fqdn }}"
+
 # The address to bind the Thrift RPC service to -- clients connect
 # here. Unlike ListenAddress above, you _can_ specify 0.0.0.0 here if
 # you want Thrift to listen on all interfaces.
 #
 # Leaving this blank has the same effect it does for ListenAddress,
 # (i.e. it will be based on the configured hostname of the node).
-cassandra_rpc_address: 0.0.0.0
+cassandra_rpc_address: "{{ hostname }}"
 
 
 # The name of the cluster. This is mainly used to prevent machines in

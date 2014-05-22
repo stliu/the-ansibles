@@ -7,12 +7,11 @@
   command: wget http://download.redis.io/redis-stable.tar.gz chdir=/tmp creates=/tmp/redis-stable.tar.gz
 
 - name: Redis | Upload the redis install script
-  template: src=redis-install.sh dest=/tmp/redis-stable/redis-install.sh owner=root group=root mode=0755
+  template: src=redis-install.sh dest=/tmp/redis-install.sh owner=root group=root mode=0755
 
 - name: Redis | Install redis using the install script
-  shell: /tmp/redis-stable/redis-install.sh
+  shell: /tmp/redis-install.sh
   sudo: yes
-
 
 - name: Redis | Install the supervisord redis script
   template: src=etc_supervisor.d_redis.conf.j2 dest=/etc/supervisor.d/redis.conf owner=root group=root mode=0644

@@ -1,6 +1,8 @@
 # the full qualified domain name, same as `hostname -v`
 fqdn: localhost
 hostname: localhost
+public_ip: "{{ ansible_default_ipv4.address }}"
+private_ip: "{{ ansible_default_ipv4.address }}"
 
 # file: roles/directories/tasks/main.yml
 ## 定义默认创建的目录结构以及这些目录的权限

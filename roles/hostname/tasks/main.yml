@@ -1,10 +1,18 @@
 # file: roles/hostname/tasks/main.yml
 
-- name: Hostname | Update the hostname (pt. 1) - hostname cmd
+- name: Hostname | Update the hostname - hostname cmd
   hostname: name={{ hostname }}
 
-# - name: Hostname | Update the hostname (pt. 2) - (/etc/hostname)
-#   template: src=etc_hostname.j2 dest=/etc/hostname owner=root group=root mode=064
 
-- name: Hostname | Update the hostname (pt. 3) - (/etc/hosts)
-  lineinfile: dest=/etc/hosts regexp="^127.0.0.1    {{ fqdn }}    {{ hostname }}" line="127.0.0.1    {{ fqdn }}    {{ hostname }}" state=present
+# - name: Hostname | Update the hostname (pt. 3) - (/etc/hosts)
+#   lineinfile: dest=/etc/hosts regexp="^127.0.0.1    {{ fqdn }}    {{ hostname }}" line="127.0.0.1    {{ fqdn }}    {{ hostname }}" state=present
+# - name: Hostname | Update the hostname - (/etc/hosts)
+#   lineinfile: dest=/etc/hosts regexp="^{{ private_ip }}   {{ hostname }}" line="{{ private_ip }}        {{ hostname }}" state=present
+# 
+# - name: Hostname | Update the hostname fqdn - (/etc/hosts)
+#   lineinfile: dest=/etc/hosts regexp="^{{ public_ip }}   {{ fqdn }}" line="{{ public_ip }}        {{ fqdn }}" state=present
+
+
+- name: Create the hosts file for all machines
+  template: src=hosts.j2 dest=/etc/hosts
+

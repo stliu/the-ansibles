@@ -1,0 +1,72 @@
+- hosts: all
+  user: root
+  gather_facts: yes
+  roles:
+     # - auth
+     # - base
+     # - build
+     # - epel
+     # - directories
+     # - security
+     # - ssh
+     # - ssl
+     - hostname
+     # - timezone
+     # - cron
+     # - python
+     # - jdk
+     # - supervisor
+     # - monit
+     # - optimize
+# 
+# - hosts: cassandra
+#   user: root
+#   gather_facts: yes
+#   roles:
+#      - cassandra
+#      
+# - hosts: kafka
+#   user: root
+#   gather_facts: yes
+#   roles:
+#      - kafka  
+#      
+# - hosts: usergrid
+#   user: root
+#   gather_facts: yes
+#   roles:
+#      - usergrid
+#      
+# - hosts: web
+#   user: root
+#   gather_facts: yes
+#   roles:
+#      - nginx
+#      - php
+#      
+#      
+# - hosts: zookeeper
+#   user: root
+#   gather_facts: yes
+#   roles:
+#      - zookeeper
+# 
+# - hosts: ejabberd
+#   user: root
+#   gather_facts: yes
+#   roles:
+#      - ejabberd
+# 
+# - hosts: redis
+#   user: root
+#   gather_facts: yes
+#   roles:
+#     - redis
+#     
+# 
+#      
+# 
+#      
+# 
+# 
+#                                     

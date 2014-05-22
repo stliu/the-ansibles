@@ -1,7 +1,9 @@
-# the full qualified domain name, same as `hostname -v`
+# the full qualified domain name, same as `hostname -fqdn`
 fqdn: ebs1.easemob.com
 hostname: ebs1
 
+public_ip: 192.168.111.111
+private_ip: 10.0.2.15
 
 cassandra_listen_address: ebs1
 cassandra_seeds:
