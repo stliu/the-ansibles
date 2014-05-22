@@ -1,0 +1,7 @@
+- name: Redis | Make sure the redis group is present
+  group:  gid={{ redis_gid }} name={{ redis_group }} state=present
+
+
+- name: Redis | Make sure the redis user is present
+  user: uid={{ redis_uid }} name={{ redis_user }} group={{ redis_group }} shell=/sbin/nologin state=present comment="redis user"
+

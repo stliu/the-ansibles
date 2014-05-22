@@ -14,7 +14,11 @@
   with_items:
     - expat-devel
     - expat    
-    
+
+- name: Ejabberd | Checkout the ejabberd source
+  git: repo={{ ejabberd_source_repo }}
+       dest=/tmp/ejabberd_source
+       version={{ ejabberd_release_tag }}    
     
 # ./configure  \
 # --prefix=/opt/ejabberd-14.10 \
