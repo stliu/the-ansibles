@@ -8,7 +8,7 @@
      - epel
      - directories
      # - firewall
-     # - security
+     - security
      - ssh
      - ssl
      - hostname
