@@ -21,8 +21,8 @@ cassandra_data_root_dir: /var/easemob/cassandra
 #
 # Setting this to 0.0.0.0 is always wrong.
 cassandra_listen_address: "{{ hostname }}"
-cassandra_seeds:
-  - localhost
+# cassandra_seeds:
+#   - localhost
   
 # Address to broadcast to other Cassandra nodes
 # Leaving this blank will set it to the same value as listen_address  

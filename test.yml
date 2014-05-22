@@ -19,11 +19,11 @@
      # - monit
      # - optimize
 # 
-# - hosts: cassandra
-#   user: root
-#   gather_facts: yes
-#   roles:
-#      - cassandra
+- hosts: cassandra
+  user: root
+  gather_facts: yes
+  roles:
+     - cassandra
 #      
 # - hosts: kafka
 #   user: root
