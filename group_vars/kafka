@@ -16,9 +16,9 @@ kafka_server_port: 9092
 # Hostname the broker will bind to and advertise to producers and consumers.
 # If not set, the server will bind to all interfaces and advertise the value returned from
 # from java.net.InetAddress.getCanonicalHostName().
-kafka_host_name: localhost
-kafka_server_zookeeper_connect:
-  - localhost:2181
+kafka_host_name: '{{ hostname }}'
+# kafka_server_zookeeper_connect:
+#   - localhost:2181
 kafka_server_num_partitions: 3
 
 # server.properties advanced settings
