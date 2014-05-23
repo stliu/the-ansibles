@@ -4,6 +4,3 @@
   file: path={{item.path}} state=directory owner={{item.owner}} group={{item.group}} mode={{item.mode}}
   with_items: directories_default
 
-- name: Directories | Make sure all additional directories are present
-  file: path={{item.path}} state=directory owner={{item.owner}} group={{item.group}} mode={{item.mode}}
-  with_items: directories_additional

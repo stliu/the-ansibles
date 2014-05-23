@@ -1,16 +1,15 @@
 # file: roles/php/tasks/main.yml
 
 - name: PHP | Make sure php packages are installed
-  yum: pkg={{ item }} state=present
+  yum: name={{ item }} state=present
   with_items: 
     - php-fpm
     - php-gd
     
-# - name: Disable default pool
-#   command: mv /etc/php-fpm.d/www.conf /etc/php-fpm.d/www.disabled creates=/etc/php-fpm.d/www.disabled
-#   notify: restart php-fpm
-#  
-# - name: Copy php-fpm configuration
-#   template: src=wordpress.conf dest=/etc/php-fpm.d/
-#   notify: restart php-fpm
-#     
+- name: PHP | Download php scripts
+  get_url: url={{ upload_script_url }} dest=/tmp/{{upload_script_name}}
+  
+- name: PHP | Unzip the upload script in /opt
+  command: unzip /tmp/{{upload_script_name}} chdir={{ nginx_www_dir }} creates={{ nginx_www_dir }}/html
+  notify:
+    - restart php-fpm

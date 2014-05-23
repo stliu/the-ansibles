@@ -1,3 +1,4 @@
 fqdn: stliu-ansiable3.lvm
 hostname: stliu-ansible3
 zookeeper_id: 3
+kafka_server_broker_id: 3

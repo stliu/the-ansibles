@@ -1,6 +1,6 @@
 redis_port: 6379
 redis_tcp_backlog: 2048
-redis_bind_address: localhost
+redis_bind_address: "{{hostname}}"
 redis_data_dir: /var/easemob/redis/
 redis_user: redis
 redis_group: redis

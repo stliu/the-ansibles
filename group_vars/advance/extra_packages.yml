@@ -1,0 +1,22 @@
+  
+## JDK  
+jdk:
+  download:
+    filename: jdk-7u25-linux-x64.tar.gz
+    url: "http://www.easemob.com/downloads/{{jdk.download.filename}}"
+  version: jdk1.7.0_25  
+
+# jdk_download_url: "http://www.easemob.com/downloads/jdk-7u25-linux-x64.tar.gz"
+# jdk_download_filename: jdk-7u25-linux-x64.tar.gz
+# jdk_version: jdk1.7.0_25  
+# 
+
+
+## python
+
+
+# 需要通过pip安装的python包  
+python_modules:
+  - requests
+  - virtualenv  
+  - redis

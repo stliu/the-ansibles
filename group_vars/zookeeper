@@ -1,7 +1,7 @@
 # file: roles/zookeeper/defaults/main.yml
 
 zookeeper_version: 3.4.6
-zookeeper_download_url: http://apache.fayea.com/apache-mirror/zookeeper/zookeeper-{{ zookeeper_version }}/zookeeper-{{ zookeeper_version }}.tar.gz
+zookeeper_download_url: "http://apache.fayea.com/apache-mirror/zookeeper/zookeeper-{{ zookeeper_version }}/zookeeper-{{ zookeeper_version }}.tar.gz"
 zookeeper_user: zookeeper
 zookeeper_group: zookeeper
 zookeeper_uid: 3040

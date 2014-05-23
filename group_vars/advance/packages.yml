@@ -1,0 +1,54 @@
+common_packages:
+  - libyaml
+  - libyaml-devel
+  - openssl
+  - openssl-devel
+  - zlib
+  - zlib-devel
+  - ImageMagick
+  - lsof
+  - htop
+  - sysstat
+  - iptraf-ng
+  - wget
+  - git
+  - curl
+  - htop
+  - iftop
+  - iotop
+  - nmap
+  - screen
+  - libselinux-python
+  
+## EPEL #############################################
+epel_download_url: http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+
+## Build  ###########################################
+#是否安装build相关的包, 默认为true
+include_build_packages: true
+build_packages:
+  - autoconf
+  - automake
+  - binutils
+  - bison
+  - flex
+  - gcc
+  - gcc-c++
+  - gettext
+  - libtool
+  - make
+  - patch
+  - pkgconfig
+  - redhat-rpm-config
+  - rpm-build
+  
+# 需要通过yum安装的python包
+python_packages:
+  - Cython
+  - libevent
+  - libevent-devel
+  - python
+  - python-devel
+  - python-setuptools
+  - python-pip
+    

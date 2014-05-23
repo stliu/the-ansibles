@@ -1,0 +1,27 @@
+server {
+	listen   80; 
+
+	root {{ upload_files_dir }};
+	index index.html index.htm;
+
+	server_name {{ fqdn }};
+
+  access_log /var/log/nginx/storage-access.log main;
+  error_log /var/log/nginx/storage-error.log;	
+	location / {
+		autoindex off;
+		charset UTF-8;
+		allow all;
+    open_file_cache max=1000 inactive=20s; 
+ 		open_file_cache_valid    30s; 
+ 		open_file_cache_min_uses 2;
+ 		open_file_cache_errors   on;
+ 		expires max;
+	}
+	location ~ \.php$ {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_pass  127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME {{ nginx_www_dir }}/html$fastcgi_script_name;
+    }
+}

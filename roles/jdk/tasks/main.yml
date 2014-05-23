@@ -7,14 +7,14 @@
   file: path=/usr/local/java state=directory
 
 - name: JDK | Oracle JDK | Download Oracle JDK
-  command: wget {{ jdk_download_url }} chdir=/tmp creates=/tmp/{{ jdk_download_filename }}
+  command: wget {{ jdk.download.url }} chdir=/tmp creates=/tmp/{{ jdk.download.filename }}
   
 
 - name: JDK | Oracle JDK | Unpack the compressed JDK binaries
-  command: tar -xvzf /tmp/{{ jdk_download_filename }} chdir=/usr/local/java creates=/usr/local/java/{{ jdk_version }}
+  command: tar -xvzf /tmp/{{ jdk.download.filename }} chdir=/usr/local/java creates=/usr/local/java/{{ jdk.version }}
 
 - name: JDK | Oracle JDK | Update the symbolic link to the JDK install
-  file: path=/usr/local/java/jdk src=/usr/local/java/{{ jdk_version }} state=link force=yes
+  file: path=/usr/local/java/jdk src=/usr/local/java/{{ jdk.version }} state=link force=yes
 
 - name: JDK | Oracle JDK | Add the JDK binaries to the system path (/etc/profile)
   lineinfile: "{{ item }}"
